@@ -1,0 +1,52 @@
+
+@import "../styles.scss";
+.container{
+     display: flex;
+     flex-direction: column;    
+}
+.encabezado{
+    display: flex;
+    flex-direction: column;
+    background-color: $color;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+     h1{
+        display: flex;
+        color: white;
+        align-items: center;
+        justify-content: center;
+    }
+    .lista{
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        a{
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+            
+            &:hover{  
+                color: white;
+                  
+                    border-bottom: solid white;
+                    
+            }
+                &:focus{
+                color: white;
+                border-bottom: solid white;
+                }
+        }
+        
+    }
+}
+.cuerpo{
+ display: flex;
+ position: relative;
+ top: 8rem;
+}
+
