@@ -1,52 +1,93 @@
-
 @import "../styles.scss";
-.container{
-     display: flex;
-     flex-direction: column;    
-}
-.encabezado{
+
+.container {
     display: flex;
     flex-direction: column;
-    background-color: $color;
+}
+.ubi{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
     top: 0;
     left: 0;
     right: 0;
     position: absolute;
-     h1{
+        .redes{
+            list-style: none;
+  position: relative;
+  flex-direction: row;
+  display: flex;
+  gap: 6px;
+  left: 271vh;
+        } 
+        .icon1{
+            position: relative;
+             left: 17vh;
+            height: 35px;
+            width: 35px;
+        }
+}
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(238, 236, 236);
+    top: 10%;
+    left: 0;
+    right: 0;
+    position: absolute;
+
+    h1 {
         display: flex;
-        color: white;
+        color: rgb(0, 0, 0);
         align-items: center;
         justify-content: center;
     }
-    .lista{
+    .contenedorList{
+        display: flex;
+        position: absolute;
+        left: 20vw;
+        top: 65px;
+        width: 60%;
+        align-items: center;
+        justify-content: center;
+      background-color: $color;  
+    }
+    .lista {
         position: relative;
         align-items: center;
         justify-content: center;
         list-style: none;
         display: flex;
         gap: 20px;
-        a{
+
+        a {
             color: black;
             text-transform: uppercase;
             text-decoration: none;
-            
-            &:hover{  
+
+            &:hover {
                 color: white;
-                  
-                    border-bottom: solid white;
-                    
+
+                border-bottom: solid white;
+
             }
-                &:focus{
+
+            &:focus {
                 color: white;
                 border-bottom: solid white;
-                }
+            }
         }
-        
+
     }
 }
-.cuerpo{
- display: flex;
- position: relative;
- top: 8rem;
-}
 
+.cuerpo {
+    display: flex;
+    position: relative;
+    top: 8rem;
+}
+@media (max-width: 428px){
+    .lista{
+        opacity: 0;
+    }
+}
