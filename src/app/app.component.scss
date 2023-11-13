@@ -1,93 +1,20 @@
 @import "../styles.scss";
 
-.container {
+.encabezado{
+    background-color: aqua;
     display: flex;
     flex-direction: column;
-}
-.ubi{
-    display: flex;
-    flex-direction: row;
-    background-color: black;
-    top: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-        .redes{
-            list-style: none;
-  position: relative;
-  flex-direction: row;
-  display: flex;
-  gap: 6px;
-  left: 271vh;
-        } 
-        .icon1{
-            position: relative;
-             left: 17vh;
-            height: 35px;
-            width: 35px;
-        }
-}
-.encabezado {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(238, 236, 236);
-    top: 10%;
-    left: 0;
-    right: 0;
-    position: absolute;
-
-    h1 {
-        display: flex;
-        color: rgb(0, 0, 0);
-        align-items: center;
-        justify-content: center;
-    }
-    .contenedorList{
-        display: flex;
-        position: absolute;
-        left: 20vw;
-        top: 65px;
-        width: 60%;
-        align-items: center;
-        justify-content: center;
-      background-color: $color;  
-    }
-    .lista {
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        list-style: none;
-        display: flex;
-        gap: 20px;
-
-        a {
-            color: black;
-            text-transform: uppercase;
-            text-decoration: none;
-
-            &:hover {
-                color: white;
-
-                border-bottom: solid white;
-
-            }
-
-            &:focus {
-                color: white;
-                border-bottom: solid white;
-            }
-        }
-
-    }
-}
-
-.cuerpo {
-    display: flex;
-    position: relative;
-    top: 8rem;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 428px){
     .lista{
         opacity: 0;
     }
+}
+.barra{
+  //colores por ver  
+}
+.carousel-item img{
+ height: 200px;
 }

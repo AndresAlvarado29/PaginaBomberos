@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServicioComponent } from './pages/servicio/servicio.component';
 import { CompraComponent } from './pages/compra/compra.component';
 import { TransparenciaComponent } from './pages/transparencia/transparencia.component';
 import { FormsModule } from '@angular/forms';
+import { NoticiasComponent } from './pages/noticias/noticias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServicioComponent,
     CompraComponent,
-    TransparenciaComponent
+    TransparenciaComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
