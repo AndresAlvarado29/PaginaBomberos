@@ -12,9 +12,27 @@
         opacity: 0;
     }
 }
-.barra{
-  //colores por ver  
+
+.info-unidad{
+    justify-content: space-between;
+    h1{
+        font-weight: bold;
+    }
+    p{
+        max-width: 500px;
+        text-align: justify;
+    }   
+}
+.noticias{
+justify-content: space-around;
+align-items: stretch;
+    h1{
+     display: flex;
+     align-items: center;
+     justify-content: center;   
+    }
+
 }
 .carousel-item img{
- height: 400px;
+ height: 800px;
 }
