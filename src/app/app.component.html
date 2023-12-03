@@ -7,7 +7,8 @@
     <nav class="navbar navbar-expand-sm bg-body-tertiary">
       <div class="container-fluid barra">
         <a class="nav-link" aria-current="page" routerLink="/" (click)="aparecer()">Inicio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,99 +35,97 @@
     </nav>
   </div>
 </div>
-  <div class="cuerpo">
-  <div *ngIf="carrusel">
+<div *ngIf="carrusel" class="cuerpo">
+  <div>
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../assets/imagenes/279210089_2362470060560490_3674532509533894419_n.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/imagenes/279210089_2362470060560490_3674532509533894419_n.jpg" class="d-block w-100"
+            alt="imagen 1">
         </div>
         <div class="carousel-item">
-          <img src="../assets/imagenes/331742212_879237966705404_3797043414908197002_n.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/imagenes/331742212_879237966705404_3797043414908197002_n.jpg" class="d-block w-100"
+            alt="imagen 2">
         </div>
         <div class="carousel-item">
-          <img src="../assets/imagenes/377566316_2772647359542756_7147491138527136319_n.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/imagenes/377566316_2772647359542756_7147491138527136319_n.jpg" class="d-block w-100"
+            alt="imagen 3">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
   </div>
-  <router-outlet></router-outlet>
-  
-    <div class="info-unidad container-fluid row">
-      <h1>¿Quiénes Somos?</h1>
-        <p>El Cuerpo de Bomberos de San Felipe de Oña, es una institucion adcrita al GAD Municipal de Oña, 
-          que cuenta con patrimonio y fondos propios, personalidad juridixa, autonoma administrativa, financiera, 
-          presupuestaria y operatica; fue creada el 19 de Abril de 1999, con acuerdo ministerial n°01134; 
-          a la fecha cumplimos 24 años de labor y servicio permanenete a la ciudadania, cuya finalidad es 
-          socorrer y atender en casos de desastres y emergencia; por ello valientes hombres y mujeres 
-          desinteresadamente exponen diariamente sus vidas por salvar la de los demas</p>
-          <div class=" row float-end" style="max-width: 500px;">
-            <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
-          </div>
-    </div>
-    <div class="info-unidad container-fluid row">
-      <h1>Mision</h1>
-      <p>
-        De conformidad con sus deberes y obligaciones, el Cuerpo de Bomberos de Oña cumple con su mision de servicio 
-        social a la comunidad, actuando en forma oportuna en todo tipo de emergencia y prevencion de incendiios; 
-        asi como tambien formar personas solidad con valores, conocimientes y destrezas capaces de responder a 
-        las necesidades de la colectividad oñense, mediante la permantenre capacitacion con la prioridad de 
-        servicio a los demas.
-      </p>
-      <div class=" row float-end" style="max-width: 500px;">
-        <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
-      </div>
-    </div>
-    <div class="info-unidad container-fluid row">
-      <h1>Vision</h1>
-      <p>
-        Ser una institucion fortalecida , con personal altamente capacitado y equipos actualizados que nos
-         permitan cumplir a cabalidad con nuestros deberes y obligaciones en bienestar de la sociedad
-      </p>
-      <div class=" row float-end" style="max-width: 500px;">
-        <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
-      </div>
+<div class="container-xl presentacion">
+  <h1>¿Quiénes Somos?</h1>
+  <div class="info-unidad">
+    <p>El Cuerpo de Bomberos de San Felipe de Oña, es una institucion adcrita al GAD Municipal de Oña,
+      que cuenta con patrimonio y fondos propios, personalidad juridixa, autonoma administrativa, financiera,
+      presupuestaria y operatica; fue creada el 19 de Abril de 1999, con acuerdo ministerial n°01134;
+      a la fecha cumplimos 24 años de labor y servicio permanenete a la ciudadania, cuya finalidad es
+      socorrer y atender en casos de desastres y emergencia; por ello valientes hombres y mujeres
+      desinteresadamente exponen diariamente sus vidas por salvar la de los demas</p>
+      <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
+  </div>
+  <h1>Mision</h1>
+  <div class="info-unidad">  
+    <p>
+      De conformidad con sus deberes y obligaciones, el Cuerpo de Bomberos de Oña cumple con su mision de servicio
+      social a la comunidad, actuando en forma oportuna en todo tipo de emergencia y prevencion de incendiios;
+      asi como tambien formar personas solidad con valores, conocimientes y destrezas capaces de responder a
+      las necesidades de la colectividad oñense, mediante la permantenre capacitacion con la prioridad de
+      servicio a los demas.
+    </p>
+    <div class=" row float-end" style="max-width: 500px;">
+      <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
     </div>
   </div>
-  <div>
-  </div>
-  <div class="noticias container-fluid py4 row ">
-    <h1>Noticias</h1>
-    <div class="card "style="width: 20rem">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title text-center">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-    <div class="card" style="width: 20rem">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-    <div class="card" style="width: 20rem">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+  <h1>Vision</h1>
+  <div class="info-unidad ">
+    <p>
+      Ser una institucion fortalecida , con personal altamente capacitado y equipos actualizados que nos
+      permitan cumplir a cabalidad con nuestros deberes y obligaciones en bienestar de la sociedad
+    </p>
+    <div class=" row float-end" style="max-width: 500px;">
+      <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
     </div>
   </div>
+</div>
+<div class="noticias container-fluid  ">
+  <h1>Noticias</h1>
+  <div class="fb-page" data-href="https://www.facebook.com/cuerpodebomberos.voluntariosdeona" data-tabs="timeline"
+    data-width="500" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true"
+    data-show-facepile="true">
+    <blockquote cite="https://www.facebook.com/cuerpodebomberos.voluntariosdeona" class="fb-xfbml-parse-ignore"><a
+        href="https://www.facebook.com/cuerpodebomberos.voluntariosdeona">Cuerpo De Bomberos Voluntarios Del Cantón
+        Oña</a></blockquote>
+  </div>
+  </div>
+  <div class="galeria">
+    <h1>Galeria</h1>
+    <div class="imagenes">
+     <img src="../assets/imagenes/279210089_2362470060560490_3674532509533894419_n.jpg" alt="imag-1">
+     <img src="../assets/imagenes/331742212_879237966705404_3797043414908197002_n.jpg" alt="imag-2">
+     <img src="../assets/imagenes/377566316_2772647359542756_7147491138527136319_n.jpg" alt="imag-3">
+     <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="imag-4">
+     <img src="../assets/imagenes/399142702_2811109362363222_2003678585338070991_n.jpg" alt="imag-5">
+     <img src="../assets/imagenes/400475431_2814452592028899_6945346817393416275_n.jpg" alt="imag-6">
+     <img src="../assets/imagenes/400598525_2814148295392662_6915177749384754837_n.jpg" alt="imag-7">
+     <img src="../assets/imagenes/400726723_2814148268725998_9129098898274442968_n.jpg" alt="imag-8">
+     <img src="../assets/imagenes/44106449_1254896404651200_6620481611911659520_n.jpg" alt="imag-9">
+     </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
   <div class="pieDePagina">
-    copyright Andres Alvarado
-  </div>
-
-  
+    <span>©Andres.A</span>
+    <span>andresalvaradoc.2002@gmail.com</span>
+    </div>
