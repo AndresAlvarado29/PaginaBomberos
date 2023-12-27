@@ -1,0 +1,151 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    height: 800px;
+}
+
+.serviciosLista {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.botonSolicitud {
+    width: 90px;
+    border-radius: 5px;
+    border: 2px blue solid;
+    background-color: transparent;
+    color: blue;
+
+    &:hover {
+        background-color: blue;
+        color: white;
+    }
+
+    //estilos cuando esta deshabilitado
+    &[disabled] {
+        opacity: 0.5;
+        /* Reducir opacidad cuando está deshabilitado */
+        pointer-events: none;
+
+        /* Deshabilitar eventos del cursor */
+        &:hover {
+            background-color: inherit;
+            /* Mantener el color de fondo original */
+            color: inherit;
+            /* Mantener el color del texto original */
+        }
+    }
+
+}
+
+.capacitaciones {
+    display: flex;
+    flex-direction: column;
+}
+
+.quema {
+    display: flex;
+    flex-direction: column;
+}
+
+.permiso {
+    display: flex;
+    flex-direction: column;
+}
+
+.serviciosFormulario {
+    background-color: rgba(136, 136, 136, 0.267);
+    float: right;
+    height: 600px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+
+    .permisoFormulario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .input {
+            display: flex;
+            width: 250px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: rgba(194, 194, 194, 0.678);
+        }
+
+        & .input:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .quemaFormulario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .input {
+            display: flex;
+            width: 250px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: rgba(194, 194, 194, 0.678);
+        }
+
+        & .input:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .capacitacionFormulario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .input {
+            display: flex;
+            width: 250px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: rgba(194, 194, 194, 0.678);
+        }
+
+        & .input:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+@media screen and (max-width: 844px) {
+    .serviciosFormulario {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        min-height: 450px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.cerrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: none;
+    background-color: ivory;
+}
+.input-group-text{
+    background-color: rgb(206, 206, 211)
+}
