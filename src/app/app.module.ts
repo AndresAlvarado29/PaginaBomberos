@@ -7,6 +7,9 @@ import { TransparenciaComponent } from './pages/transparencia/transparencia.comp
 import { FormsModule } from '@angular/forms';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+//firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule
   ],
   providers: [],
   bootstrap: [AppComponent]

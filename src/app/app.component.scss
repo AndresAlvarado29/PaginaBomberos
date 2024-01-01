@@ -1,18 +1,52 @@
 @import "../styles.scss";
 
+
 .encabezado{
-    background-color: aqua;
+    background-color: #7c0808;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-@media (max-width: 428px){
-    .lista{
-        opacity: 0;
+.encabezadoTop{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .fuente{
+        position: relative;
+        top: 7px;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 65pt;
+        color: #FFB400;
+    }
+    .logo{
+        display: flex;
+        height: 120px;
+        width: 120px;
     }
 }
+.encabezadoMedio{
+    @media(max-width:767px){
+        .barra{
+            display: flex;
+            position: relative;
+            left: 168px;
+        }
+    }
+}  
+
 .presentacion{
+    @media (max-width: 530px){   
+       .info-unidad{
+        max-width: 400px;
+        img,p{
+            display: flex;
+            max-width: 400px;    
+        }
+       }
+        
+    }
     h1{
         justify-content: center;
         font-weight: bold;
@@ -22,11 +56,16 @@
     flex-direction: column;
     gap: 50px;
 }
+.info{
+
+    border: 3px black solid;
+}
 .info-unidad{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    height: 230px;
     img,p{
         flex-wrap: wrap;
         max-width: 500px;
@@ -42,7 +81,28 @@
         flex-direction: column;
     }
 }
-
+.info-unidad2{
+    @extend .info-unidad;
+}
+.animacion1{
+    animation: traslado 5s forwards alternate-reverse;
+}
+.animacion2{
+    animation: traslado2 5s forwards alternate-reverse;
+}
+@keyframes traslado {
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes traslado2 {
+    100%{
+        transform: translateX(100%);
+    }
+}
+.carousel{
+    padding-bottom: 20px;
+}  
 .carousel-item img{
  height: auto;
 }
@@ -50,6 +110,18 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media (max-width: 530px){   
+        .noticias{
+            background-color: #7c0808;
+        }
+    }
 }
 
 .imagenes{
@@ -74,10 +146,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: #7c0808;
     max-height: 100px;
     flex-direction: column;
         span{
+            color: #FFB400;
             font-weight: bold;
         }
 }
+
+
