@@ -74,7 +74,7 @@
   <div class="container presentacion">
     <div class="info">
       <h1>¿Quiénes Somos?</h1>
-      <div class="info-unidad">
+      <div class="info-unidad animacion1">
         <p>
           El Cuerpo de Bomberos de San Felipe de Oña, es una institucion adcrita al GAD Municipal de Oña,
           que cuenta con patrimonio y fondos propios, personalidad juridixa, autonoma administrativa, financiera,
@@ -90,7 +90,7 @@
     </div>
     <div class="info">
       <h1>Mision</h1>
-      <div class="info-unidad2">
+      <div class="info-unidad2 animacion2">
         <p>
           De conformidad con sus deberes y obligaciones, el Cuerpo de Bomberos de Oña cumple con su mision de servicio
           social a la comunidad, actuando en forma oportuna en todo tipo de emergencia y prevencion de incendiios;
@@ -105,7 +105,7 @@
     </div>
     <div class="info">
       <h1>Vision</h1>
-      <div class="info-unidad">
+      <div class="info-unidad animacion1">
         <p>
           Ser una institucion fortalecida , con personal altamente capacitado y equipos actualizados que nos
           permitan cumplir a cabalidad con nuestros deberes y obligaciones en bienestar de la sociedad
@@ -141,6 +141,31 @@
     </div>
   </div>
 </div>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transiciones con CSS</title>
+    <style>
+        .caja {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            transition: background-color 0.5s ease;
+            margin: 20px;
+        }
+
+        .caja:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja"></div>
+</body>
+</html>
 <router-outlet></router-outlet>
 <div class="pieDePagina">
   <span>©Andres.A</span>

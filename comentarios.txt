@@ -1,0 +1,7 @@
+paquete                            anterior->nueva
+@angular/cdk                       17.0.4 -> 17.0.5         
+@angular/cli                       16.2.7 -> 17.0.10        
+@angular/core                      16.2.10 -> 17.0.9        
+@angular/fire                      16.0.0 -> 17.0.1         
+
+      versiones antes de actualizar manualmente el json
