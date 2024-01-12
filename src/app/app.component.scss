@@ -87,9 +87,6 @@
 .animacion1{
     animation: traslado 5s forwards alternate-reverse;
 }
-.animacion2{
-    animation: traslado2 5s forwards alternate-reverse;
-}
 @keyframes traslado {
     100%{
         transform: translateX(-100%);
@@ -134,9 +131,7 @@
         width: 100%;
         aspect-ratio: 3/2;
         object-fit: cover;
-        //proximo cambio cuando se haga click agrandar la foto y ponerla en el centro y crear un boton x para cerrar
-    }
-//01:50 uno de diciembre de mantenimiento 
+    } 
 }
 .pieDePagina{
     padding-top: 10px;
@@ -155,26 +150,51 @@
         }
 }
 
-section {
+.light-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    transition: transform .3s ease-in-out;
+    width: 100%;
     height: 100vh;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
-    color: #fff;
+    transform: scale(0);
+    img{
+        width: 75vw;
+        max-height: 75vh;
+    }
+    .close{
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        width: 40px;
+        height: 40px;
+        background-color: #7c0808;
+        border-radius: 50%;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        line-height: 40px;
+    }
+    .close:target{
+        transform: scale(0);
+    }
+    .next{
+        display: block;
+        background-color: #7c0808;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        line-height: 30px;
+        text-align: center;
+    }
+}
+.light-box:target{
+    transform: scale(1);
 }
 
-.section1 { background-color: #3498db; }
-.section2 { background-color: #2ecc71; }
-.section3 { background-color: #e74c3c; }
-
-.animated {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s, transform 1s;
-}
-
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}

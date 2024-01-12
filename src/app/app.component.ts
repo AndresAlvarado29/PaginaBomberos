@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import 'bootstrap';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
-
+import * as AOS from 'aos';
 
 
 
@@ -16,6 +16,10 @@ export class AppComponent {
   constructor(private scrollDispatcher: ScrollDispatcher){
 
   }
+ngOnInit(){
+  AOS.init()
+  window.addEventListener('load',AOS.refresh);
+}
  noticias=true;
   carrusel=true;
 
