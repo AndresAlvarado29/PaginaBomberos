@@ -10,6 +10,9 @@ import { AppComponent } from 'src/app/app.component';
 export class ServicioComponent {
   permisoForm=false
   capacitacionForm=false
+  isCollapsed: boolean = true;
+  isCollapsed2: boolean = true;
+  isCollapsed3: boolean = true;
   quemaForm=false
   formulario=false
   constructor(private router: Router, private app: AppComponent){
@@ -77,6 +80,46 @@ export class ServicioComponent {
       }
     });
   }
-  
-
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+    this.animacionboton()
+  }
+  toggleCollapse2() {
+    this.isCollapsed2 = !this.isCollapsed2;
+    this.animacionboton2()
+  }
+  toggleCollapse3() {
+    this.isCollapsed3 = !this.isCollapsed3;
+    this.animacionboton3()
+  }
+  animacionboton(){
+    var elemento = document.getElementById('colapso')
+    setTimeout(function () {
+      elemento?.classList.add('animacion2');
+    });
+  if(elemento?.classList.contains('animacion2'))
+  setTimeout(function () {
+    elemento?.classList.remove('animacion2')
+  });
+}
+animacionboton2(){
+  var elemento = document.getElementById('colapso2')
+  setTimeout(function () {
+    elemento?.classList.add('animacion2');
+  });
+if(elemento?.classList.contains('animacion2'))
+setTimeout(function () {
+  elemento?.classList.remove('animacion2')
+});
+}
+animacionboton3(){
+  var elemento = document.getElementById('colapso3')
+  setTimeout(function () {
+    elemento?.classList.add('animacion2');
+  });
+if(elemento?.classList.contains('animacion2'))
+setTimeout(function () {
+  elemento?.classList.remove('animacion2')
+});
+}
 }

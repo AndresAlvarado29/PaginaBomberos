@@ -1,45 +1,24 @@
 <div class="encabezado">
-  <div class="encabezadoTop container text-center">
+  <div class="encabezadoTop container-fluid text-center">
     <div class="row"></div>
     <div class="logo"><img src="../assets/imagenes/logo.png" alt="logo"></div>
     <h1 class="fuente">Bomberos Oña</h1>
   </div>
   <div class="encabezadoMedio">
-    <div class="barra">
-      <nav class="navbar navbar-expand-md" style="background-color: #255a82;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/" (click)="aparecer()">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="paginas/servicio" (click)="ocultar()">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="paginas/transparencia" (click)="ocultar()">Transparencia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="paginas/contacto" (click)="ocultar()">Contactenos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="paginas/noticias" (click)="ocultar()">Noticias</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </div>
+    
+    <nav class="navbar">
+      <button id="colapso" *ngIf="botonColapso" (click)="toggleCollapse()" class="navbar-toggle animacion4">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      <div class="navbar-links" [ngClass]="{ 'collapsed': isCollapsed }">
+        <a class="nav-link animacion1" aria-current="page" routerLink="/" (click)="aparecer()">Inicio</a>
+        <a class="nav-link animacion1" routerLink="paginas/servicio" (click)="ocultar()">Servicios</a>
+        <a class="nav-link animacion1" routerLink="paginas/transparencia" (click)="ocultar()">Transparencia</a>
+        <a class="nav-link animacion1" routerLink="paginas/contacto" (click)="ocultar()">Contáctenos</a>
+      </div>
+    </nav>
   </div>
 </div>
 <div *ngIf="carrusel" class="cuerpo">
@@ -71,6 +50,7 @@
       </button>
     </div>
   </div>
+  <hr>
   <div class="container presentacion">
     <div class="info">
       <h1>¿Quiénes Somos?</h1>
@@ -81,7 +61,7 @@
           presupuestaria y operatica; fue creada el 19 de Abril de 1999, con acuerdo ministerial n°01134;
           a la fecha cumplimos 24 años de labor y servicio permanenete a la ciudadania, cuya finalidad es
           socorrer y atender en casos de desastres y emergencia; por ello valientes hombres y mujeres
-          desinteresadamente exponen diariamente sus vidas por salvar la de los demas
+          desinteresadamente exponen diariamente sus vidas por salvar la de los demas.
         </p>
         <div class=" row float-end" style="max-width: 500px;">
           <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
@@ -98,7 +78,7 @@
           las necesidades de la colectividad oñense, mediante la permantenre capacitacion con la prioridad de
           servicio a los demas.
         </p>
-        <div class=" row float-end" style="max-width: 500px;">
+        <div class="row float-end" style="max-width: 500px;">
           <img src="../assets/imagenes/378391404_2775713099236182_4187871476357910392_n.jpg" alt="">
         </div>
       </div>
@@ -116,16 +96,18 @@
       </div>
     </div>
   </div>
+  <hr>
   <div class="noticias container-fluid">
     <h1>Noticias</h1>
     <div class="fb-page" data-href="https://www.facebook.com/cuerpodebomberos.voluntariosdeona" data-tabs="timeline"
-      data-width="500" data-height="500" data-small-header="true" data-adapt-container-width="true"
+      data-width="430" data-height="500" data-small-header="true" data-adapt-container-width="true"
       data-hide-cover="true" data-show-facepile="true">
       <blockquote cite="https://www.facebook.com/cuerpodebomberos.voluntariosdeona" class="fb-xfbml-parse-ignore"><a
           href="https://www.facebook.com/cuerpodebomberos.voluntariosdeona">Cuerpo De Bomberos Voluntarios Del Cantón
           Oña</a></blockquote>
     </div>
   </div>
+  <hr>
   <div class="galeria" id="galeria">
     <h1>Galeria</h1>
     <div class="imagenes">
@@ -285,6 +267,7 @@
     </svg></a>
   <a href="#galeria" class="close">X</a>
 </article>
+
 <router-outlet></router-outlet>
 <div class="pieDePagina">
   <span>©Andres.A</span>

@@ -8,6 +8,8 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./noticias.component.scss']
 })
 export class NoticiasComponent {
+token= ''; 
+url= ''
   constructor(private router: Router, private app: AppComponent){
 
   }

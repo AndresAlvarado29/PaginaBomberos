@@ -1,108 +1,149 @@
 <div class="container">
     <div class="serviciosLista">
         <div class="permiso">
-            <h1>Permisos</h1>
-            <p>Requisitos</p>
-            <ul>
-                <li>Copia de cedula</li>
-                <li>Copia del ruc</li>
-                <li>Copia de predio(Urbano/Rustico)</li>
-                <li>Permiso anterior</li>
-            </ul>
-            <button class="botonSolicitud" id="boton1" (click)="activarFormularioPermiso($event)">Solicitar</button>
+            <div class="encabezado" id="colapso">
+                <div class="col-8">
+                    <h3>Permisos</h3>
+                </div>
+                <div class="col-4">
+                    <button (click)="toggleCollapse()">
+                        <div></div>
+                        <div></div>
+                    </button>
+                </div>
+            </div>
+            <div class="cuerpo" [ngClass]="{'collapsed':isCollapsed}">
+                <p>Requisitos</p>
+                <ul>
+                    <li>Copia de cedula</li>
+                    <li>Copia del ruc</li>
+                    <li>Copia de predio(Urbano/Rustico)</li>
+                    <li>Permiso anterior</li>
+                </ul>
+                <button class="botonSolicitud" id="boton1" (click)="activarFormularioPermiso($event)">Solicitar</button>
+            </div>
         </div>
         <div class="quema">
-            <h1>Quema controlada</h1>
-            <ul>
-                <li>Solicitud a la institucion, pidiendo el servicio</li>
-                <li>Cancelar tasa correspondiente</li>
-            </ul>
-            <button class="botonSolicitud" id="boton2" (click)="activarFormularioQuema($event)">Solicitar</button>
+            <div class="encabezado" id="colapso2">
+                <div class="col-8">
+                    <h3>Quema controlada</h3>
+                </div>
+                <div class="col-4">
+                    <button  (click)="toggleCollapse2()">
+                        <div></div>
+                        <div></div>
+                    </button>
+                </div>
+            </div>
+            <div class="cuerpo" [ngClass]="{'collapsed':isCollapsed2}">
+                <ul>
+                    <li>Solicitud a la institucion, pidiendo el servicio</li>
+                    <li>Cancelar tasa correspondiente</li>
+                </ul>
+                <button class="botonSolicitud" id="boton2" (click)="activarFormularioQuema($event)">Solicitar</button>
+            </div>
+
         </div>
         <div class="capacitaciones">
-            <h1>Capacitaciones</h1>
-            <ul>
-                <li>Manejo de extintores</li>
-                <li>Primeros auxilios</li>
-                <li>Identificacion y manejo de materiales peligrosos</li>
-                <li>Cuerdas y nudos</li>
-                <li>Rescate vehicular</li>
-            </ul>
-            <button class="botonSolicitud" id="boton3"
-                (click)="activarFormularioCapacitaciones($event)">Solicitar</button>
+            <div class="encabezado" id="colapso3">
+                <div class="col-8">
+                    <h3>Capacitaciones</h3>
+                </div>
+                <div class="col-4">
+                    <button (click)="toggleCollapse3()">
+                        <div></div>
+                        <div></div>
+                    </button>
+                </div>
+            </div>
+            <div class="cuerpo" [ngClass]="{'collapsed':isCollapsed3}">
+                <ul>
+                    <li>Manejo de extintores</li>
+                    <li>Primeros auxilios</li>
+                    <li>Identificacion y manejo de materiales peligrosos</li>
+                    <li>Cuerdas y nudos</li>
+                    <li>Rescate vehicular</li>
+                </ul>
+                <button class="botonSolicitud" id="boton3"
+                    (click)="activarFormularioCapacitaciones($event)">Solicitar</button>
+            </div>
         </div>
     </div>
-    <div *ngIf="formulario" class="serviciosFormulario">
-        <button class="cerrar" (click)="desactivarFormulario($event)"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                <path
-                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-            </svg></button>
-        <div *ngIf="permisoForm" class="permisoFormulario">
-            <h3>Formulario de Permiso</h3>
-            <label for="">Nombre</label>
-            <input class="input" type="text">
-            <label for="">Apellido</label>
-            <input class="input" type="text">
-            <label for="">Correo</label>
-            <input class="input" type="email">
-            <label for="">Celular</label>
-            <input class="input" type="text">
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupFile01">Cedula</label>
-                <input type="file" class="form-control" id="inputGroupFile01">
-              </div>
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupFile01">RUC</label>
-                <input type="file" class="form-control" id="inputGroupFile01">
-              </div>
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupFile01">Predio</label>
-                <input type="file" class="form-control" id="inputGroupFile01">
-              </div>
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupFile01">Permiso</label>
-                <input type="file" class="form-control" id="inputGroupFile01">
-              </div>
-            <button>Enviar</button>
-        </div>
+    <div class="formularios">
+        <div *ngIf="formulario" class="light-box">
+            <button class="cerrar animacion" (click)="desactivarFormulario($event)"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg></button>
+            <div *ngIf="permisoForm" class="permisoFormulario">
+                <h3>Formulario de Permiso</h3>
+                <label for="">Nombre</label>
+                <input class="input" type="text">
+                <label for="">Apellido</label>
+                <input class="input" type="text">
+                <label for="">Correo</label>
+                <input class="input" type="email">
+                <label for="">Celular</label>
+                <input class="input" type="text">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Cedula</label>
+                    <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">RUC</label>
+                    <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Predio</label>
+                    <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Permiso</label>
+                    <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <button class="botonSolicitud">Enviar</button>
+            </div>
 
-        <div *ngIf="quemaForm" class="quemaFormulario">
-            <h3>Formulario de Quema controlada</h3>
-            <label for="">Nombre</label>
-            <input class="input" type="text">
-            <label for="">Apellido</label>
-            <input class="input" type="text">
-            <label for="">Correo</label>
-            <input class="input" type="email">
-            <label for="">Celular</label>
-            <input class="input" type="text">
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupFile01">Solicitud</label>
-                <input type="file" class="form-control" id="inputGroupFile01">
-              </div>
-            <button>Enviar</button>
-        </div>
-        <div *ngIf="capacitacionForm" class="capacitacionFormulario">
-            <h3>Formulario de Capacitaciones</h3>
-            <label for="">Nombre</label>
-            <input class="input" type="text">
-            <label for="">Apellido</label>
-            <input class="input" type="text">
-            <label for="">Correo</label>
-            <input class="input" type="email">
-            <label for="">Celular</label>
-            <input class="input" type="text">
-            <label for="">Capacitaciones:</label>
-            <ul>
-                <li><input type="checkbox">Manejo de extintores</li>
-                <li><input type="checkbox">Primeros auxilios</li>
-                <li><input type="checkbox">Identificacion y manejo de materiales peligrosos</li>
-                <li><input type="checkbox">Cuerdas y nudos</li>
-                <li><input type="checkbox">Rescate vehicular</li>
-            </ul>
+            <div *ngIf="quemaForm" class="quemaFormulario">
+                <h3>Formulario de Quema controlada</h3>
+                <label for="">Nombre</label>
+                <input class="input" type="text">
+                <label for="">Apellido</label>
+                <input class="input" type="text">
+                <label for="">Correo</label>
+                <input class="input" type="email">
+                <label for="">Celular</label>
+                <input class="input" type="text">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Solicitud</label>
+                    <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <button class="botonSolicitud">Enviar</button>
+            </div>
+            <div *ngIf="capacitacionForm" class="capacitacionFormulario">
+                <h3>Formulario de Capacitaciones</h3>
+                <label for="">Nombre</label>
+                <input class="input" type="text">
+                <label for="">Apellido</label>
+                <input class="input" type="text">
+                <label for="">Correo</label>
+                <input class="input" type="email">
+                <label for="">Celular</label>
+                <input class="input" type="text">
+                <label for="">Capacitaciones:</label>
+                <ul>
+                    <li><input type="checkbox">Manejo de extintores</li>
+                    <li><input type="checkbox">Primeros auxilios</li>
+                    <li><input type="checkbox">Identificacion y manejo de materiales peligrosos</li>
+                    <li><input type="checkbox">Cuerdas y nudos</li>
+                    <li><input type="checkbox">Rescate vehicular</li>
+                </ul>
 
-            <button>Enviar</button>
+                <button class="botonSolicitud">Enviar</button>
+            </div>
         </div>
     </div>
 </div>
+

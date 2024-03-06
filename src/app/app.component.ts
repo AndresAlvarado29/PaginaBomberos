@@ -12,11 +12,23 @@ import * as AOS from 'aos';
 })
 export class AppComponent {
   title = 'Bomberos Oña';
+  isCollapsed: boolean = false;
+  botonColapso: boolean = false;
+
   
   constructor(private scrollDispatcher: ScrollDispatcher){
 
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+  this.botonColapso = window.innerWidth <= 520;
+  if(this.isCollapsed==true&&window.innerWidth>=521){
+    this.isCollapsed = !this.isCollapsed;
+  }
+  }
 ngOnInit(){
+  this.onResize();
   AOS.init()
   window.addEventListener('load',AOS.refresh);
 }
@@ -29,4 +41,22 @@ ngOnInit(){
   aparecer(){
     this.carrusel=true;
   }
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+    this.animacionboton()
+  }
+animacionboton(){
+  var elemento = document.getElementById('colapso')
+  if(elemento?.classList.contains('animacion4')){
+  setTimeout(function () {
+    elemento?.classList.add('animacion3');
+    elemento?.classList.remove('animacion4')
+  });
+}else if(elemento?.classList.contains('animacion3'))
+setTimeout(function () {
+  elemento?.classList.add('animacion4');
+  elemento?.classList.remove('animacion3')
+});
+  
+}
 }
