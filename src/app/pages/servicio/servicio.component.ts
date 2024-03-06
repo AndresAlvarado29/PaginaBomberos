@@ -10,7 +10,7 @@ import { AppComponent } from 'src/app/app.component';
 export class ServicioComponent {
   permisoForm=false
   capacitacionForm=false
-  isCollapsed: boolean = true;
+  isCollapsed1: boolean = true;
   isCollapsed2: boolean = true;
   isCollapsed3: boolean = true;
   quemaForm=false
@@ -81,7 +81,7 @@ export class ServicioComponent {
     });
   }
   toggleCollapse() {
-    this.isCollapsed = !this.isCollapsed;
+    this.isCollapsed1 = !this.isCollapsed1;
     this.animacionboton()
   }
   toggleCollapse2() {
@@ -93,7 +93,7 @@ export class ServicioComponent {
     this.animacionboton3()
   }
   animacionboton(){
-    var elemento = document.getElementById('colapso')
+    var elemento = document.getElementById('colapso1')
     setTimeout(function () {
       elemento?.classList.add('animacion2');
     });
@@ -121,5 +121,26 @@ if(elemento?.classList.contains('animacion2'))
 setTimeout(function () {
   elemento?.classList.remove('animacion2')
 });
+}
+mostrarInfoInputs() {
+  const files = document.querySelectorAll<HTMLInputElement>('.estilo1'); 
+  Array.from(files).forEach(f => {
+    f.addEventListener('change', e => {
+      const span = document.querySelector('.estilo1-name > span');
+      if (f.files && f.files.length > 0) { // Verifica si f.files existe y tiene elementos
+      if(f.files.length == 0){
+        if(span){
+          span.innerHTML ='Ningun Archivos selecionado';
+        }
+      }else if(f.files.length > 1){
+        if(span){
+        span.innerHTML = f.files.length + 'Archivos selecionados';
+      }
+      }else if (span) {
+        span.innerHTML = f.files && f.files.length > 0 ? f.files[0].name : '';
+    }
+      }
+    });
+  });
 }
 }

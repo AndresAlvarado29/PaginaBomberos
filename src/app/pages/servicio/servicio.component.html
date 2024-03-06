@@ -1,7 +1,7 @@
 <div class="container">
     <div class="serviciosLista">
         <div class="permiso">
-            <div class="encabezado" id="colapso">
+            <div class="encabezado" id="colapso1">
                 <div class="col-8">
                     <h3>Permisos</h3>
                 </div>
@@ -12,7 +12,7 @@
                     </button>
                 </div>
             </div>
-            <div class="cuerpo" [ngClass]="{'collapsed':isCollapsed}">
+            <div class="cuerpo" [ngClass]="{'collapsed':isCollapsed1}">
                 <p>Requisitos</p>
                 <ul>
                     <li>Copia de cedula</li>
@@ -78,6 +78,7 @@
                         d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
                 </svg></button>
             <div *ngIf="permisoForm" class="permisoFormulario">
+                <form action="https://formsubmit.co/bomberoona2021@hotmail.com" method="POST">
                 <h3>Formulario de Permiso</h3>
                 <label for="">Nombre</label>
                 <input class="input" type="text">
@@ -87,26 +88,31 @@
                 <input class="input" type="email">
                 <label for="">Celular</label>
                 <input class="input" type="text">
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupFile01">Cedula</label>
-                    <input type="file" class="form-control" id="inputGroupFile01">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupFile01">RUC</label>
-                    <input type="file" class="form-control" id="inputGroupFile01">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupFile01">Predio</label>
-                    <input type="file" class="form-control" id="inputGroupFile01">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupFile01">Permiso</label>
-                    <input type="file" class="form-control" id="inputGroupFile01">
+                <label for="">Descripcion</label>
+                <textarea class="descripcion" id="" cols="40" rows="10"></textarea>
+                <label for="">Documentos</label>
+                <div>
+                    <input  multiple="true" type="file" class="estilo1" id="archivo">
+                    <label for="archivo">
+                        <span class="estilo1-name">
+                            <span>
+                                Ningun Archivo Seleccionado
+                            </span>
+                        </span>
+                        <span class="estilo1-button" (click)="mostrarInfoInputs()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
+                                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"/>
+                              </svg>
+                                Buscar Archivo
+                        </span>
+                    </label>
                 </div>
                 <button class="botonSolicitud">Enviar</button>
+            </form>
             </div>
 
             <div *ngIf="quemaForm" class="quemaFormulario">
+                <form action="https://formsubmit.co/bomberoona2021@hotmail.com" method="POST">  
                 <h3>Formulario de Quema controlada</h3>
                 <label for="">Nombre</label>
                 <input class="input" type="text">
@@ -116,34 +122,84 @@
                 <input class="input" type="email">
                 <label for="">Celular</label>
                 <input class="input" type="text">
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupFile01">Solicitud</label>
-                    <input type="file" class="form-control" id="inputGroupFile01">
+                <label for="">Descripcion</label>
+                <textarea class="descripcion" id="" cols="40" rows="10"></textarea>
+                <label for="">Solicitud</label>
+                <div>
+                    <input  multiple="true" type="file" class="estilo1" id="archivo">
+                    <label for="archivo">
+                        <span class="estilo1-name">
+                            <span>
+                                Ningun Archivo Seleccionado
+                            </span>
+                        </span>
+                        <span class="estilo1-button" (click)="mostrarInfoInputs()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
+                                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"/>
+                              </svg>
+                                Buscar Archivo
+                        </span>
+                    </label>
                 </div>
                 <button class="botonSolicitud">Enviar</button>
+                </form>
             </div>
             <div *ngIf="capacitacionForm" class="capacitacionFormulario">
                 <h3>Formulario de Capacitaciones</h3>
-                <label for="">Nombre</label>
-                <input class="input" type="text">
-                <label for="">Apellido</label>
-                <input class="input" type="text">
-                <label for="">Correo</label>
-                <input class="input" type="email">
-                <label for="">Celular</label>
-                <input class="input" type="text">
+                <form  action="https://formsubmit.co/andresalvaradoc.2002@gmail.com" method="POST" class="capacitacionFormulario">
+                <label for="nombre">Nombre</label>
+                <input class="input" type="text" name="nombre" id="nombre">
+                <label for="apellido">Apellido</label>
+                <input class="input" type="text" name="apellido" id="apellido">
+                <label for="email">Correo</label>
+                <input class="input" type="email" name="email" id="email">
+                <label for="celular">Celular</label>
+                <input class="input" type="text" name="celular" id="celular">
                 <label for="">Capacitaciones:</label>
-                <ul>
-                    <li><input type="checkbox">Manejo de extintores</li>
-                    <li><input type="checkbox">Primeros auxilios</li>
-                    <li><input type="checkbox">Identificacion y manejo de materiales peligrosos</li>
-                    <li><input type="checkbox">Cuerdas y nudos</li>
-                    <li><input type="checkbox">Rescate vehicular</li>
-                </ul>
-
-                <button class="botonSolicitud">Enviar</button>
+                <div class="part1">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="Manejo de extintores" value="option1" name="Manejo de extintores">
+                        <label class="form-check-label" for="Manejo de extintores">Manejo de extintores</label>
+                    </div>
+                    <div class="form-check ">    
+                        <input class="form-check-input" type="checkbox" id="Primeros auxilios" value="option2" name="Primeros auxilios">
+                        <label class="form-check-label" for="Primeros auxilios">Primeros auxilios</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="Identificacion y manejo de materiales peligrosos" value="option3" name="Identificacion y manejo de materiales peligrosos">
+                        <label class="form-check-label" for="Identificacion y manejo de materiales peligrosos">Identificacion y manejo de materiales peligrosos</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="Cuerdas y nudos" value="option4" name="Cuerdas y nudos">
+                        <label class="form-check-label" for="Cuerdas y nudos">Cuerdas y nudos</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="Rescate vehicular" value="option5" name="Rescate vehicular">
+                        <label class="form-check-label" for="Rescate vehicular">Rescate vehicular</label>
+                    </div>
+                </div>
+                <label for="">Descripcion</label>
+                <textarea class="descripcion" id="" cols="40" rows="10"></textarea>
+                <label for="">Solicitud</label>
+                <div>
+                    <input  multiple="true" type="file" class="estilo1" id="archivo">
+                    <label for="archivo">
+                        <span class="estilo1-name">
+                            <span>
+                                Ningun Archivo Seleccionado
+                            </span>
+                        </span>
+                        <span class="estilo1-button" (click)="mostrarInfoInputs()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
+                                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"/>
+                              </svg>
+                                Buscar Archivo
+                        </span>
+                    </label>
+                </div>
+                <button type="submit" class="botonSolicitud">Enviar</button>  
+            </form>
             </div>
         </div>
     </div>
 </div>
-
