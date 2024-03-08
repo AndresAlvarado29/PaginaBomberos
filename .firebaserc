@@ -1,5 +1,14 @@
 {
+  "targets": {
+    "bomberosproject": {
+      "hosting": {
+        "proyectoBomberos": [
+          "bomberosproject"
+        ]
+      }
+    }
+  },
   "projects": {
-    "default": "bomberosona-924c2"
+    "default": "bomberosproject"
   }
 }

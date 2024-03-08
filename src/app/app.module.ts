@@ -7,9 +7,18 @@ import { TransparenciaComponent } from './pages/transparencia/transparencia.comp
 import { FormsModule } from '@angular/forms';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { HttpClientModule } from '@angular/common/http';
 //firebase
-import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestore } from '@angular/fire/compat/firestore'
+//materials
+import {MatTableModule} from '@angular/material/table';
+import { DocumentoComponent } from './pages/documento/documento.component';
+import { SesionComponent } from './pages/sesion/sesion.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -17,13 +26,21 @@ import { environment } from '../environments/environment';
     ServicioComponent,
     TransparenciaComponent,
     NoticiasComponent,
-    ContactoComponent   
+    ContactoComponent,
+    DocumentoComponent,
+    SesionComponent,
+      
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    AngularFireModule
+    MatTableModule,
+    HttpClientModule,
+    AngularFireModule,
+    provideFirebaseApp(() => initializeApp({"projectId":"bomberosproject","appId":"1:793810426032:web:64869b8f04cf2aa3080375","storageBucket":"bomberosproject.appspot.com","apiKey":"AIzaSyDO4QpybFPmAX_UhY351VKfZoE1MbBqC_k","authDomain":"bomberosproject.firebaseapp.com","messagingSenderId":"793810426032"})),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -39,7 +39,13 @@
             <mat-header-cell *matHeaderCellDef> Documento </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.archivo}} </mat-cell>
           </ng-container>
-      
+          <ng-container matColumnDef="Accion">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+          <mat-cell *matCellDef="let contacto">
+            <button class="botont" (click)="borrar(contacto)">Eliminar</button>
+            <button class="botonT" (click)="actualizar(contacto)">Actualizar</button>
+          </mat-cell>
+         </ng-container>
          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       
@@ -47,4 +53,21 @@
       <span *ngIf="listaDocumentosFire.length==0">
           No existen carreras
       </span>
+      </div>
+
+
+      <div class="formulario">
+        <label for="txtnombre">Nombre</label>
+    <input id="txtnombre" [(ngModel)]="documento.nombre"/> 
+    <label for="txtAño">Año</label>
+    <input id="txtAño" [(ngModel)]="documento.anio"/> 
+    <label for="txtPresupuesto">Presupuesto</label>
+    <input  id="txtPresupuesto" [(ngModel)]="documento.presupuesto"/>
+    <label for="txtIngreso">Ingresos</label>
+    <input id="txtIngreso" [(ngModel)]="documento.ingresos"/>
+    <label for="txtEgreso">Egresos</label>
+    <input id="txtEgreso" [(ngModel)]="documento.egresos"/>
+   <!-- <label for="txtArchivo">Documento</label>
+    <input type="file" id="txtArchivo" [(ngModel)]="documento.archivo"/> --> 
+    <button id="boton" (click)="guardar(documento)">Guardar</button>  
       </div>
