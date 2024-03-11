@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { NavigationExtras, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { Documento } from 'src/app/domain/Documento';
 import { DocumentoService } from 'src/app/service/documento.service';
+
 
 @Component({
   selector: 'app-documento',
@@ -13,6 +14,8 @@ import { DocumentoService } from 'src/app/service/documento.service';
 export class DocumentoComponent {
   listaDocumentos:Documento[]=[]
   listaDocumentosFire:any;
+  documentoCargado:File | null = null;
+  selectedDocumento: Documento | null = null;
   displayedColumns: string[]=['Numero','Nombre','Año','Presupuesto','Ingresos','Egresos','Documento','Accion']
   dataSource=this.documentoService.getAll();
   @ViewChild(MatTable)
@@ -29,21 +32,47 @@ export class DocumentoComponent {
  }
 
  async guardar(documento: Documento) {
- const response = await this.documentoService.save(documento)
- console.log(response) 
- this.documento = new Documento()
-  console.log("creado");
-}
-async borrar(documento: Documento){
-    let params: NavigationExtras = {
-      queryParams: {
-        documento: documento,
-      }
+  try {
+    if (!documento.uid) {
+      if(this.documentoCargado){
+        const response =await this.documentoService.subirArchivo(this.documentoCargado,documento)
+        console.log("Documento creado:", response);
+        }else{
+          console.log('falla al obtener el documento')
+        }
+      this.documento = new Documento();
+    } else {
+      const actualizacion = await this.documentoService.update(documento.uid, documento);
+      console.log("Documento actualizado:", actualizacion);
+      this.documento = new Documento();
     }
+  } catch (error) {
+    console.error("Error al guardar o actualizar el documento:", error);
+  }
+}
+archivoSeleccionado(evento:Event):void{
+  const inputElement = evento.target as HTMLInputElement;
+  const archivo: File | null = (inputElement.files && inputElement.files.length > 0) ? inputElement.files[0] : null;
+  console.log(archivo)
+  if (archivo) {
+    this.documentoCargado=archivo
+  } else {
+    console.error('No se seleccionó ningún archivo.');
+  }
+}
+
+
+async borrar(documento: Documento){
  await this.documentoService.delete(documento.uid);
 }
-async actualizar(documento: Documento){
-  const response = await this.documentoService.update(documento.uid,documento);
+actualizar(documento: Documento) {
+  this.selectedDocumento = documento;
+    /*
+    Object.assign hace una copia del documento para tabajar con una
+    entidad independiente para no afectar a la tabla original sin
+    pasar antes de la funcion guardarWS 
+    */
+    this.documento = Object.assign({}, documento);
 }
 ngOnInit(){
   setTimeout(() => {
@@ -52,7 +81,7 @@ ngOnInit(){
 }
   visualizar() {
     const currentUrl = this.router.url;
-    if (currentUrl == '/paginas/transparencia') {
+    if (currentUrl == '/paginas/documentos') {
       this.app.ocultar()
     }
   }

@@ -5,6 +5,7 @@ export class Documento{
     presupuesto:number=0;
     ingresos:number=0;
     egresos: number=0;
+    archivo: string='';
     toJSON() {
         return {
           uid: this.uid,
@@ -12,9 +13,10 @@ export class Documento{
           anio: this.anio,
           presupuesto: this.presupuesto,
           ingresos: this.ingresos,
-          egresos: this.egresos
+          egresos: this.egresos,
+          archivo: this.archivo
         };
       }
     }
 
-     // archivo: File | Blob | null = null;
+     
