@@ -1,5 +1,5 @@
 import { Component, ViewChild} from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { Documento } from 'src/app/domain/Documento';
@@ -12,15 +12,15 @@ import { DocumentoService } from 'src/app/service/documento.service';
   styleUrls: ['./documento.component.scss']
 })
 export class DocumentoComponent {
-  listaDocumentos:Documento[]=[]
   listaDocumentosFire:any;
   documentoCargado:File | null = null;
   selectedDocumento: Documento | null = null;
   displayedColumns: string[]=['Numero','Nombre','Año','Presupuesto','Ingresos','Egresos','Documento','Accion']
-  dataSource=this.documentoService.getAll();
-  @ViewChild(MatTable)
-  table!: MatTable<Documento>;
- documento: Documento = new Documento();
+  dataSource= new MatTableDataSource<Documento>();
+  @ViewChild(MatTableDataSource)
+  table!: MatTableDataSource<Documento>;
+  documento: Documento = new Documento();
+  filtroBusqueda: string = '';
 
  constructor(private documentoService: DocumentoService, private router:Router, private app: AppComponent){
   this.listaDocumentosFire= documentoService.getAll();
@@ -29,23 +29,29 @@ export class DocumentoComponent {
     this.documento = new Documento()
     this.documento = params['documento']
   }
+  this.listaDocumentosFire.subscribe((documentos: Documento[]) => {
+    // Asignar los datos al MatTableDataSource
+    this.dataSource.data = documentos;
+  });
  }
-
+ 
  async guardar(documento: Documento) {
   try {
     if (!documento.uid) {
       if(this.documentoCargado){
         const response =await this.documentoService.subirArchivo(this.documentoCargado,documento)
         console.log("Documento creado:", response);
+        this.documento = new Documento();
+        this.limpiarInputArchivo();
         }else{
           console.log('falla al obtener el documento')
         }
-      this.documento = new Documento();
     } else {
       if(this.documentoCargado){
       const actualizacion = await this.documentoService.subirArchivo(this.documentoCargado, documento);
       console.log("Documento actualizado:", actualizacion);
       this.documento = new Documento();
+      this.limpiarInputArchivo();
     }
     }
   } catch (error) {
@@ -76,7 +82,8 @@ actualizar(documento: Documento) {
     pasar antes de la funcion guardarWS 
     */
     this.documento = Object.assign({}, documento);
-    console.log(documento)
+    console.log(documento);
+    this.limpiarInputArchivo();
 }
 ngOnInit(){
   setTimeout(() => {
@@ -89,8 +96,13 @@ ngOnInit(){
       this.app.ocultar()
     }
   }
-  filtro(event: Event){
-    const valorFiltro = (event.target as HTMLInputElement).value;
-    
+  aplicarFiltroBusqueda() {
+    this.dataSource.filter = this.filtroBusqueda.trim().toLowerCase();
+  }
+  limpiarInputArchivo() {
+    const inputElement = document.getElementById('inputArchivo') as HTMLInputElement;
+    if (inputElement) {
+      inputElement.value = ''; // Restablece el valor del campo de entrada de archivo a una cadena vacía
+    }
   }
 }

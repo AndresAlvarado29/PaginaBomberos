@@ -1,9 +1,10 @@
-<h1 class="tituloLC">Rendiciones de Cuentas</h1>
-    <div class="tabla">
+<h1 class="tituloLC">Rendiciones de Cuentas</h1>   
+<input matInput type="text" placeholder="Buscar" [(ngModel)]="filtroBusqueda" (input)="aplicarFiltroBusqueda()" #input>
+<div class="tabla">
         <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <!-- Position Column -->
           <ng-container matColumnDef="Numero">
-            <mat-header-cell *matHeaderCellDef> Nº </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.uid}} </mat-cell>
           </ng-container>
       
@@ -46,13 +47,17 @@
             <button class="botonT" [ngClass]="{ 'selected-row': documento === selectedDocumento }" (click)="actualizar(documento)">Actualizar</button>
           </mat-cell>
          </ng-container>
+         <ng-container *matNoDataRow>
+          <tr class="mat-row" *ngIf="dataSource.data.length === 0 && !filtroBusqueda">
+            <td class="mat-cell" colspan="4">No hay documentos subidos</td>
+          </tr>
+        <tr class="mat-row" *ngIf="dataSource.data.length === 0 && filtroBusqueda">
+          <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro "{{input.value}}"</td>
+        </tr>
+         </ng-container>
          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      
         </mat-table>   
-      <span *ngIf="listaDocumentosFire.length==0">
-          No existen carreras
-      </span>
       </div>
 <hr>
 
@@ -67,7 +72,7 @@
     <input id="txtIngreso" [(ngModel)]="documento.ingresos"/>
     <label for="txtEgreso">Egresos</label>
     <input id="txtEgreso" [(ngModel)]="documento.egresos"/>
-   <label for="txtArchivo">Documento</label>
-    <input id="inputArchivo" type="file" (change)="archivoSeleccionado($event)" id="txtArchivo" [(ngModel)]="documento.archivo"/> 
+   <label for="inputArchivo">Documento</label>
+    <input id="inputArchivo" type="file" (change)="archivoSeleccionado($event)"/> 
     <button id="boton" (click)="guardar(documento)">Guardar</button>  
       </div>
