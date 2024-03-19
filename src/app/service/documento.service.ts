@@ -58,10 +58,7 @@ export class DocumentoService {
          }else{
           const response = this.update(documento.uid,documento)
           console.log("Documento actualizado", response)
-         }
-        
-         
-         
+         } 
      const inputElement = document.getElementById('inputArchivo') as HTMLInputElement;
      if (inputElement) {
        inputElement.value = ''; // Limpiar el valor del input

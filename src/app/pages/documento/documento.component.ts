@@ -1,6 +1,6 @@
-import { Component, ViewChild, inject } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { Documento } from 'src/app/domain/Documento';
 import { DocumentoService } from 'src/app/service/documento.service';
@@ -42,9 +42,11 @@ export class DocumentoComponent {
         }
       this.documento = new Documento();
     } else {
-      const actualizacion = await this.documentoService.update(documento.uid, documento);
+      if(this.documentoCargado){
+      const actualizacion = await this.documentoService.subirArchivo(this.documentoCargado, documento);
       console.log("Documento actualizado:", actualizacion);
       this.documento = new Documento();
+    }
     }
   } catch (error) {
     console.error("Error al guardar o actualizar el documento:", error);
@@ -63,6 +65,7 @@ archivoSeleccionado(evento:Event):void{
 
 
 async borrar(documento: Documento){
+alert('Esta seguro que desea eliminarlo')
  await this.documentoService.delete(documento.uid);
 }
 actualizar(documento: Documento) {
@@ -73,6 +76,7 @@ actualizar(documento: Documento) {
     pasar antes de la funcion guardarWS 
     */
     this.documento = Object.assign({}, documento);
+    console.log(documento)
 }
 ngOnInit(){
   setTimeout(() => {
@@ -84,5 +88,9 @@ ngOnInit(){
     if (currentUrl == '/paginas/documentos') {
       this.app.ocultar()
     }
+  }
+  filtro(event: Event){
+    const valorFiltro = (event.target as HTMLInputElement).value;
+    
   }
 }
