@@ -69,13 +69,35 @@
 }  
 
 .encabezadoMedio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .barra{
+        display: flex;
+        }
+    .botonDecoration{
+        display: flex;
+    }
+    .botonInicio{ 
+        display: flex;
+        background: transparent;
+        border: none;
+        float: right;
+        justify-content: center;
+        align-content: center;
+        top: auto;
+        left: 83vw;
+        gap: 0.5rem;
+        position: absolute;
+        flex-wrap: wrap;
+        &:hover{color: white;}
+    }
     @media (max-width: 520px){ 
-       
             display: flex;
             position: relative;
             margin: 0px;
-            width: 100%;
-        
+            width: 100%;  
      }
 }  
 

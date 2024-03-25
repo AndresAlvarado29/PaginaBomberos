@@ -1,1 +1,24 @@
-<p>registro works!</p>
+<div class="container">
+    <h1>Registrate</h1>
+    <div class="formulario">
+        <div class="section1">
+            <label for="nombre">Nombre: <input type="text" [(ngModel)]="usuario.nombre" id="nombre"></label>
+            <label for="apellido">Apellido: <input type="text" [(ngModel)]="usuario.apellido" id="apellido"></label>
+        </div>
+        <div class="section2">
+            <label for="celular">Celular: <input type="text" placeholder="099999999" [(ngModel)]="usuario.celular" id="celular"></label>
+            <label for="direccion">Direccion: <input type="text" placeholder="Arsenio Ullauri" [(ngModel)]="usuario.direccion" id="direccion"></label>
+        </div>
+        <div class="section3">
+            <label for="correo">Correo: </label>
+        <input type="text" placeholder="example@gmail.com" [(ngModel)]="usuario.correo" id="correo">
+        <label for="contraseña">Contraseña: </label>
+        <input type="password" placeholder="**************" [(ngModel)]="usuario.contrasena" id="contraseña">
+        </div>
+        <div class="botonesIncioSesion">
+            <button class="botonR" (click)="registrar(usuario)">Registrate</button>
+            <button class="botonG"><img src="../assets/imagenes/googleLogo.png" alt="logoGoogle"> Registrate con google</button>
+        </div>
+    </div>
+</div>
+

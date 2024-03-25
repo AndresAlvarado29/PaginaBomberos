@@ -1,0 +1,48 @@
+.sesion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(23, 105, 135);
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
+    .contra{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        input{
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(225, 155, 14, 0.903);
+        }&:hover{
+            input{
+            background-color: rgba(235, 188, 93, 0.903);
+            }
+        }
+    }
+    .correo{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        input{
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(225, 155, 14, 0.903);
+        }&:hover{
+            input{
+            background-color: rgba(235, 188, 93, 0.903);
+            }
+        }
+    }
+}
+.botonGoogle{
+    img{
+    width: 30px;
+    height: 30px;
+}
+}

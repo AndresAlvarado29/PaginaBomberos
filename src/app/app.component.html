@@ -3,23 +3,33 @@
     <div class="row"></div>
     <div class="logo"><img src="../assets/imagenes/logo.png" alt="logo"></div>
     <h1 class="fuente">Bomberos Oña</h1>
+
   </div>
   <div class="encabezadoMedio">
-    
-    <nav class="navbar">
-      <button id="colapso" *ngIf="botonColapso" (click)="toggleCollapse()" class="navbar-toggle animacion4">
-        <div></div>
-        <div></div>
-        <div></div>
-      </button>
-      <div class="navbar-links" [ngClass]="{ 'collapsed': isCollapsed }">
-        <a class="nav-link animacion1" aria-current="page" routerLink="/" (click)="aparecer()">Inicio</a>
-        <a class="nav-link animacion1" routerLink="paginas/servicio" (click)="ocultar()">Servicios</a>
-        <a class="nav-link animacion1" routerLink="paginas/transparencia" (click)="ocultar()">Transparencia</a>
-        <a class="nav-link animacion1" routerLink="paginas/contacto" (click)="ocultar()">Contáctenos</a>
-        <a class="nav-link animacion1" routerLink="paginas/documentos" (click)="ocultar()">Documentos</a>
-      </div>
-    </nav>
+    <div class="barra">
+      <nav class="navbar">
+        <button id="colapso" *ngIf="botonColapso" (click)="toggleCollapse()" class="navbar-toggle animacion4">
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+        <div class="navbar-links" [ngClass]="{ 'collapsed': isCollapsed }">
+          <a class="nav-link animacion1" aria-current="page" routerLink="/" (click)="aparecer()">Inicio</a>
+          <a class="nav-link animacion1" routerLink="paginas/servicio" (click)="ocultar()">Servicios</a>
+          <a class="nav-link animacion1" routerLink="paginas/transparencia" (click)="ocultar()">Transparencia</a>
+          <a class="nav-link animacion1" routerLink="paginas/contacto" (click)="ocultar()">Contáctenos</a>
+        </div>
+      </nav>
+    </div>
+    <div class="botonDecoration">
+      <a routerLink="paginas/sesion" (click)="ocultar()"><button class="botonInicio"><svg
+            xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle"
+            viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+          </svg>  Ingresar</button></a>
+    </div>
   </div>
 </div>
 <div *ngIf="carrusel" class="cuerpo">

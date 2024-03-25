@@ -15,18 +15,18 @@ export class DocumentoService {
   uploadProgress$!: Observable<number>
   downloadUrl$!: Observable<string>
   private storage: Storage = inject(Storage);
-  documentoRef = collection(this.firestore, 'documentos');
+  documentoRef = collection(this.firestore, 'Documento');
     constructor(private firestore: Firestore) { }
       save(documentos: Documento){
         const documentoPlano = documentos.toJSON()
         return addDoc(this.documentoRef, documentoPlano);
   }
   update(uid: string,data:any){
-    const documentoRefU = doc(this.firestore,`documentos/${uid}`)
+    const documentoRefU = doc(this.firestore,`Documento/${uid}`)
     return updateDoc(documentoRefU,data)
    }
    delete(uid: string){
-    const documentoRefD = doc(this.firestore,`documentos/${uid}`)
+    const documentoRefD = doc(this.firestore,`Documento/${uid}`)
     return deleteDoc(documentoRefD)
    }
    getAll(): Observable<Documento[]>{
