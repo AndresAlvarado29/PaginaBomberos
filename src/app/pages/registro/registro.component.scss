@@ -31,20 +31,18 @@
 }
 .botonesIncioSesion {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
 
     .botonR {
         width: 100px;
-        height: 35px;
     }
 
     .botonG {
         width: 215px;
-        height: 35px;
         img {
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
         }
     }
 }

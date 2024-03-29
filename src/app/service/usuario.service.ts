@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth'
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from '@angular/fire/auth'
 import { Firestore, collectionData, deleteDoc } from '@angular/fire/firestore';
-import { signOut } from 'firebase/auth';
 import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { Usuario } from '../domain/Usuario';
 import { Observable } from 'rxjs';
@@ -36,5 +35,8 @@ usuarioRef= collection(this.firestore, 'Usuario')
   }
   logout(){
     return signOut(this.auth);
+  }
+  loginWithGoogle(){
+    return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
 }

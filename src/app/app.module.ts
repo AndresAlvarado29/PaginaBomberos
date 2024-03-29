@@ -26,6 +26,8 @@ import { FormsModule } from '@angular/forms';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { MatIconModule } from '@angular/material/icon'
+
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { MenuComponent } from './pages/menu/menu.component';
     FormsModule,
     AppRoutingModule,
     MatInputModule,
+    MatIconModule,
     MatFormFieldModule,
     HttpClientModule,
     AngularFireModule,
