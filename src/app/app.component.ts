@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import 'bootstrap';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import * as AOS from 'aos';
+import { UsuarioService } from './service/usuario.service';
 
 
 
@@ -10,16 +11,16 @@ import * as AOS from 'aos';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'Bomberos Oña';
   isCollapsed: boolean = false;
   botonColapso: boolean = false;
-
+  currentUser: any;
   
-  constructor(private scrollDispatcher: ScrollDispatcher){
+  constructor(private scrollDispatcher: ScrollDispatcher, private usuarioService: UsuarioService){
 
   }
-
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event) {
   this.botonColapso = window.innerWidth <= 520;
@@ -59,4 +60,9 @@ setTimeout(function () {
 });
   
 }
+cerrar(){
+  this.usuarioService.logout()
+  console.log("sesion cerrada")
+}
+
 }

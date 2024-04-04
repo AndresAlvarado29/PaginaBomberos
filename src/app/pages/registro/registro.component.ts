@@ -24,18 +24,9 @@ ngOnInit(){
     }
   }
   registrar(usuario: Usuario){
-      this.servicioUsuario.register({ email: usuario.correo, password: usuario.contrasena }).then(()=>{
-        this.crear(usuario); 
+      this.servicioUsuario.register({ email: usuario.correo, password: usuario.contrasena,usuario: usuario }).then(()=>{
         console.log("Usuario Registrado");
         this.router.navigate(['paginas/sesion']);
       }).catch(error=> console.log(error)); 
-  }
-  crear(usuario: Usuario){
-    try {
-    this.servicioUsuario.save(usuario);
-    this.usuario= new Usuario();
-    } catch (error) {
-      console.log("error al crear usuario")
-    }
   }
 }

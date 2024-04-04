@@ -8,6 +8,8 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DocumentoComponent } from './pages/documento/documento.component';
 import { SesionComponent } from './pages/sesion/sesion.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,7 @@ const routes: Routes = [
   {path:"paginas/documentos",component:DocumentoComponent},
   {path:"paginas/sesion",component:SesionComponent},
   {path:"paginas/registro", component:RegistroComponent},
+  {path:"paginas/menu", component:MenuComponent}
 ];
 
 @NgModule({

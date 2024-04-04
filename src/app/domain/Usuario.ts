@@ -5,7 +5,7 @@ export class Usuario{
     contrasena:string='';
     celular: string='';
     direccion: string='';
-    rol: string='';
+    rol: string='usuario';
     toJSON() {
         return {
           nombre: this.nombre,

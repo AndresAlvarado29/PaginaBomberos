@@ -28,8 +28,7 @@ export class SesionComponent {
     iniciar(usuario: Usuario){
       this.usuarioServicio.login({email: usuario.correo, password: usuario.contrasena}).then(()=>
       {
-        console.log("sesion iniciada")
-        this.router.navigate(['paginas/menu'])
+        console.log("sesion iniciada",usuario.rol)
       }).catch(error=> console.log(error));
     }
     loginGoogle(){
