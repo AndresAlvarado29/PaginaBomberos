@@ -20,7 +20,7 @@ url= ''
 }
   visualizar() {
     const currentUrl = this.router.url;
-    if (currentUrl == '/paginas/noticias') {
+    if (currentUrl == '/paginas/menu/noticias') {
       this.app.ocultar()
     }
   }

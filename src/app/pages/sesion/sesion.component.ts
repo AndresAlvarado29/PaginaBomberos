@@ -28,7 +28,10 @@ export class SesionComponent {
     iniciar(usuario: Usuario){
       this.usuarioServicio.login({email: usuario.correo, password: usuario.contrasena}).then(()=>
       {
-        console.log("sesion iniciada",usuario.rol)
+        setTimeout(() => {
+          this.app.inicioS()
+          this.app.aparecer()
+        });
       }).catch(error=> console.log(error));
     }
     loginGoogle(){

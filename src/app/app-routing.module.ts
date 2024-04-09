@@ -16,8 +16,8 @@ const routes: Routes = [
   {path:"paginas/contacto", component:ContactoComponent},
   {path:"paginas/transparencia",component:TransparenciaComponent},
   {path:"paginas/servicio",component:ServicioComponent},
-  {path:"paginas/noticias",component:NoticiasComponent},
-  {path:"paginas/documentos",component:DocumentoComponent},
+  {path:"paginas/menu/noticias",component:NoticiasComponent},
+  {path:"paginas/menu/documentos",component:DocumentoComponent},
   {path:"paginas/sesion",component:SesionComponent},
   {path:"paginas/registro", component:RegistroComponent},
   {path:"paginas/menu", component:MenuComponent}

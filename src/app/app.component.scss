@@ -73,6 +73,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    .botones{
+        display: flex;
+        flex-direction: column;
+    }
     .barra{
         display: flex;
         }

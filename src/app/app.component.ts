@@ -1,8 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import 'bootstrap';
-import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import * as AOS from 'aos';
 import { UsuarioService } from './service/usuario.service';
+import { Auth } from '@angular/fire/auth';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -18,7 +19,7 @@ export class AppComponent {
   botonColapso: boolean = false;
   currentUser: any;
   
-  constructor(private scrollDispatcher: ScrollDispatcher, private usuarioService: UsuarioService){
+  constructor(private auth: Auth, private usuarioService: UsuarioService,private routeA: ActivatedRoute,private router: Router){
 
   }
   @HostListener('window:resize', ['$event'])
@@ -29,13 +30,42 @@ export class AppComponent {
   }
   }
 ngOnInit(){
+  setTimeout(() => {
+    this.visualizar() // Realizar el cambio de forma asincrónica
+  });
+  this.verificar();
   this.onResize();
-  AOS.init()
+  AOS.init();
   window.addEventListener('load',AOS.refresh);
+  this.routeA.queryParams.subscribe(params =>{
+    const role = params['role'];
+    console.log('Rol del usuario:', role);
+    if(role==='role'){
+      this.btnF=true;
+    }
+  })
 }
+ btnF=false;
  noticias=true;
-  carrusel=true;
+ carrusel=true;
+ bCerrar=false;
+ bInicio=true;
 
+ visualizar() {
+  const currentUrl = this.router.url;
+  console.log(currentUrl)
+  if (currentUrl === '/') {
+    this.aparecer()
+  }
+}
+ inicioS(){
+  this.bCerrar=true;
+  this.bInicio=false;
+ }
+ cerrarS(){
+  this.bInicio=true;
+  this.bCerrar=false;
+ }
   ocultar(){
     this.carrusel=false;
   }
@@ -62,7 +92,15 @@ setTimeout(function () {
 }
 cerrar(){
   this.usuarioService.logout()
+  this.cerrarS()
   console.log("sesion cerrada")
+}
+verificar(){
+  this.auth.onAuthStateChanged(user=>{
+    if(user){
+      this.inicioS()
+    }
+  });
 }
 
 }

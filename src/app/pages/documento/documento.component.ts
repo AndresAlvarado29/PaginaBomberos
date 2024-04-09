@@ -92,7 +92,7 @@ ngOnInit(){
 }
   visualizar() {
     const currentUrl = this.router.url;
-    if (currentUrl == '/paginas/documentos') {
+    if (currentUrl == '/paginas/menu/documentos') {
       this.app.ocultar()
     }
   }
