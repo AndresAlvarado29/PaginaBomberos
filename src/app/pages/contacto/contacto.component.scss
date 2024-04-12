@@ -57,10 +57,13 @@
 
 @media screen and (max-width: 844px) {
     .mapa {
-    display: flex;
-    position: absolute;
+        display: flex;
+    position: relative;
     flex-direction: column;
-    top: 650px;
-    min-height: 450px;
+    top: 192px;
+    right: 366px;
+    justify-content: center;
+    align-items: center;
+    min-height: 491px;
     }    
 }

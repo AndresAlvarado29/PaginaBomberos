@@ -203,7 +203,7 @@
 }
 //colapse and expand
 .encabezado{
-    background-color: aqua;
+    background-color: #FFB400;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -299,3 +299,9 @@
     }
 }
 
+//mapa
+@media screen and (max-width: 830px) {
+    .encabezado button {
+       left: 20%;
+    }
+}

@@ -160,16 +160,15 @@
 .carousel-item img{
  height: auto;
 }
-.noticias{
+.cont-noticias{
     display: flex;
     flex-direction: column;
-    max-width: 900px ;
-
-    h1{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    gap: 0.5rem;
+} 
+.noticias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imagenes{
