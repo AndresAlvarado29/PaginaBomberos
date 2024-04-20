@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { Usuario } from 'src/app/domain/Usuario';
+import { EncriptacionService } from 'src/app/service/encriptacion.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { keySecret } from 'src/llave/keySecret';
 
 @Component({
   selector: 'app-sesion',
@@ -11,8 +13,9 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class SesionComponent {
   hide = true;
+  private llave= keySecret.key;
   usuario = new Usuario()
-  constructor(private router: Router, private app: AppComponent, private usuarioServicio: UsuarioService){}
+  constructor(private router: Router, private app: AppComponent, private usuarioServicio: UsuarioService, private encriptar: EncriptacionService){}
   
   ngOnInit(){
     setTimeout(() => {
@@ -26,7 +29,8 @@ export class SesionComponent {
       }
     }
     iniciar(usuario: Usuario){
-      this.usuarioServicio.login({email: usuario.correo, password: usuario.contrasena}).then(()=>
+      const encriptado = this.encriptar.set(this.llave,usuario.contrasena)
+      this.usuarioServicio.login({email: usuario.correo, password: encriptado}).then(()=>
       {
         setTimeout(() => {
           this.app.inicioS()

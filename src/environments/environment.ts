@@ -1,4 +1,1 @@
-export const environment= {
-  encrypt: true,
-  keyEncrypt:'asdasdsad'
-};
+export const environment = {};

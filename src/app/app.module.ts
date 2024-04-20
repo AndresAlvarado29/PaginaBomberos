@@ -9,7 +9,6 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { HttpClientModule } from '@angular/common/http';
 //firebase
-import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 //materials
@@ -55,7 +54,6 @@ import { MatIconModule } from '@angular/material/icon'
     provideFirebaseApp(() => initializeApp({"projectId":"bomberosproject","appId":"1:793810426032:web:64869b8f04cf2aa3080375","storageBucket":"bomberosproject.appspot.com","apiKey":"AIzaSyDO4QpybFPmAX_UhY351VKfZoE1MbBqC_k","authDomain":"bomberosproject.firebaseapp.com","messagingSenderId":"793810426032"})),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    //provideFirebaseApp(() => initializeApp({"projectId":"bomberosproject","appId":"1:793810426032:web:64869b8f04cf2aa3080375","storageBucket":"bomberosproject.appspot.com","apiKey":"AIzaSyDO4QpybFPmAX_UhY351VKfZoE1MbBqC_k","authDomain":"bomberosproject.firebaseapp.com","messagingSenderId":"793810426032"})),
     provideAuth(() => getAuth()),
   ],
   providers: [],

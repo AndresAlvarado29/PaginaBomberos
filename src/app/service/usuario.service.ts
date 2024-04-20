@@ -13,10 +13,9 @@ import { Router } from '@angular/router';
 
 export class UsuarioService {
 userData:any;
-
 usuarioRef= collection(this.firestore, 'Usuario');
   constructor(private auth: Auth, private firestore: Firestore, private router: Router) { 
-    this.autentificacionEstadoUsuario()
+    
   }
   autentificacionEstadoUsuario(){
     this.auth.onAuthStateChanged(user=>{
@@ -53,10 +52,7 @@ usuarioRef= collection(this.firestore, 'Usuario');
       ).then((usuarioaFirebase)=>{
         return usuarioaFirebase;
       });
-      console.log(infoUsuario.user.uid)
-      const usuarioRefC = doc(this.firestore,`Usuario/${infoUsuario.user.uid}`)
-      console.log('contra es la siguiente:')
-      
+      const usuarioRefC = doc(this.firestore,`Usuario/${infoUsuario.user.uid}`) 
       const usuarioPlano = usuario.toJSON()
       return setDoc(usuarioRefC, usuarioPlano);
   }
