@@ -5,6 +5,7 @@
     background-color: #7c0808;
     display: flex;
     flex-direction: column;
+    width: auto;
     justify-content: center;
     align-items: center;
 }
@@ -73,36 +74,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    .botones{
-        display: flex;
-        flex-direction: column;
-    }
     .barra{
         display: flex;
         }
     .botonDecoration{
         display: flex;
     }
-    .botonInicio{ 
-        display: flex;
-        background: transparent;
-        border: none;
-        float: right;
-        justify-content: center;
-        align-content: center;
-        top: auto;
-        left: 83vw;
-        gap: 0.5rem;
-        position: absolute;
-        flex-wrap: wrap;
-        &:hover{color: white;}
-    }
-    @media (max-width: 520px){ 
-            display: flex;
-            position: relative;
-            margin: 0px;
-            width: 100%;  
-     }
 }  
 
 .presentacion{
@@ -127,23 +104,31 @@
 }
 .info{
     border: 3px black solid;
+    padding: 2rem;
 }
 .info-unidad{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 2rem;
     height: auto;
-    img,p{
+    span{
+        text-transform: uppercase;
+        font-size: 28pt;
+        font-weight: 500;
+    }
+    p{
         flex-wrap: wrap;
         max-width: 500px;
         display: flex;
         flex-direction: row;
         margin-bottom: 5px;
-    }
-    p{
         text-align: justify;
-    }   
+    }
+    img{
+        height: auto;
+        width: auto;
+    }
 }
 @media (max-width: 950px){
     .info-unidad{
@@ -199,7 +184,17 @@
             font-weight: bold;
         }
 }
-
+//galeria
+.galeria{   
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48pt;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
 .light-box{
     position: fixed;
     top: 0;
@@ -297,6 +292,48 @@
 .collapsed {
   display: none;
 }
+//boton de iniciar y cerrar sesion
+.botones{
+    display: none;
+}
+#colapso2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top:auto;
+    a{
+        text-decoration: none;
+    }
+    .inicioCollapse{
+        background-color: #000000;
+        color: white;
+        border: none;
+        height: 60px;
+    }
+    .botonInicio{
+        color: white;
+        background-color: #000000;
+        height: 60px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &:hover{color: #255a82;} 
+    }
+}
+@media (max-width: 441px){   
+     #colapso2{
+        top: 181px;
+     }   
+}
+.collapsed2{
+        display: flex !important;
+        flex-direction: row;
+}
 
 @media screen and (max-width: 520px) {
   .navbar-links {
@@ -370,4 +407,17 @@
     div:last-child {
         transform: rotate(0deg);
     }
+}
+
+//carrucel
+.carousel-item{
+img{
+    width: 100vw;
+    max-height: 600px;
+}
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    width: 50px;
+    height: 50px;
+    background-color: #255a82;
 }

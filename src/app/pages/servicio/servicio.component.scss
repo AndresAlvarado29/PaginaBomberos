@@ -141,15 +141,15 @@
         }
     }
 }
-
+.cerrarF{
+ display: flex;
+ flex-direction: row;
+}
 .cerrar {  
-    display: block;
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        width: 40px;
-        height: 40px;
-        background-color: #7c0808;
+         display: block;
+         position: relative;
+         left: 26px;
+        background-color: #000000;
         border-radius: 50%;
         text-align: center;
         text-decoration: none;
@@ -299,9 +299,26 @@
     }
 }
 
-//mapa
 @media screen and (max-width: 830px) {
     .encabezado button {
        left: 20%;
+    }
+}
+//imagenes lateral derecha
+.imagenes{
+    margin: 50px auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,355px),1fr));
+    img{
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+    } 
+    .img2,.img4{
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+    .img1,.img3{
+        box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
     }
 }

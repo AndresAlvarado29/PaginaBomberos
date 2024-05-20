@@ -1,48 +1,36 @@
 <h1 class="tituloLC">Rendiciones de Cuentas</h1>
     <div class="tabla">
         <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-          <!-- Position Column -->
           <ng-container matColumnDef="Numero">
-            <mat-header-cell *matHeaderCellDef> Nº </mat-header-cell>
+            <mat-header-cell class="header" *matHeaderCellDef> ID </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.uid}} </mat-cell>
           </ng-container>
-      
-          <!-- Name Column -->
           <ng-container matColumnDef="Nombre">
             <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.nombre}} </mat-cell>
           </ng-container>
-      
-          <!-- Weight Column -->
           <ng-container matColumnDef="Año">
             <mat-header-cell *matHeaderCellDef> Año </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.anio}} </mat-cell>
           </ng-container>
-      
-          <!-- Symbol Column -->
           <ng-container matColumnDef="Presupuesto">
             <mat-header-cell *matHeaderCellDef> Presupuesto </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.presupuesto}} </mat-cell>
           </ng-container>
-
           <ng-container matColumnDef="Ingresos">
             <mat-header-cell *matHeaderCellDef> Ingresos </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.ingresos}} </mat-cell>
           </ng-container>
-
           <ng-container matColumnDef="Egresos">
             <mat-header-cell *matHeaderCellDef> Egresos </mat-header-cell>
             <mat-cell *matCellDef="let documento"> {{documento.egresos}} </mat-cell>
           </ng-container>
-      
           <ng-container matColumnDef="Documento">
             <mat-header-cell *matHeaderCellDef> Documento </mat-header-cell>
-            <mat-cell *matCellDef="let documento"> {{documento.archivo}} </mat-cell>
+            <mat-cell *matCellDef="let documento"><a href="{{ documento.archivo }}" target="_blank">Ver documento</a></mat-cell>
           </ng-container>
-      
          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      
         </mat-table>   
       <span *ngIf="listaDocumentosFire.length==0">
           No existen carreras

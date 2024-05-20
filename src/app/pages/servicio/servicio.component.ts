@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { CorreoService } from 'src/app/service/correo.service';
 
 @Component({
   selector: 'app-servicio',
@@ -15,9 +16,22 @@ export class ServicioComponent {
   isCollapsed3: boolean = true;
   quemaForm=false
   formulario=false
-  constructor(private router: Router, private app: AppComponent){
+  constructor(private router: Router, private app: AppComponent, private correoService: CorreoService){
   }
-  
+  enviarCorreoPrueba(){
+    const from = 'Acme <onboarding@resend.dev>';
+    const to = 'kandrea.alvarado@cuenca.edu.ec';
+    const subject = 'Hola perra';
+    const html = '<strong>no se que hace eso</strong>';
+    this.correoService.enviarCorreo(from,to,subject,html)
+    .then(response => {
+      console.log('Correo enviado', response);
+    })
+    .catch(
+      error=>{
+        console.error('Error al enviar', error);
+      });
+  }
   deshabilitarOtros(botonClickeado: HTMLElement) {
     const botones = document.getElementById
     

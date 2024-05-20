@@ -62,17 +62,18 @@
 <hr>
 
       <div class="formulario">
-        <label for="txtnombre">Nombre</label>
-    <input id="txtnombre" [(ngModel)]="documento.nombre"/> 
-    <label for="txtAño">Año</label>
-    <input id="txtAño" [(ngModel)]="documento.anio"/> 
-    <label for="txtPresupuesto">Presupuesto</label>
-    <input  id="txtPresupuesto" [(ngModel)]="documento.presupuesto"/>
-    <label for="txtIngreso">Ingresos</label>
-    <input id="txtIngreso" [(ngModel)]="documento.ingresos"/>
-    <label for="txtEgreso">Egresos</label>
-    <input id="txtEgreso" [(ngModel)]="documento.egresos"/>
-   <label for="inputArchivo">Documento</label>
-    <input id="inputArchivo" type="file" (change)="archivoSeleccionado($event)"/> 
+        <div class="section1">
+          <label for="txtnombre">Nombre: <input id="txtnombre" [(ngModel)]="documento.nombre"/></label> 
+          <label for="txtAño">Año: <input id="txtAño" [(ngModel)]="documento.anio"/></label>  
+        </div>
+        <div class="section1">
+          <label for="txtPresupuesto">Presupuesto: <input  id="txtPresupuesto" [(ngModel)]="documento.presupuesto"/></label>
+          
+          <label for="txtIngreso">Ingresos: <input id="txtIngreso" [(ngModel)]="documento.ingresos"/></label>
+        </div> 
+    <div class="section1">
+      <label for="txtEgreso">Egresos: <input id="txtEgreso" [(ngModel)]="documento.egresos"/></label>
+     <label for="inputArchivo">Documento: <input id="inputArchivo" type="file" (change)="archivoSeleccionado($event)"/> </label>
+    </div>
     <button id="boton" (click)="guardar(documento)">Guardar</button>  
       </div>

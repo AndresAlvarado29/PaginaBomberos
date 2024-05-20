@@ -33,6 +33,7 @@ export class SesionComponent {
       this.usuarioServicio.login({email: usuario.correo, password: encriptado}).then(()=>
       {
         setTimeout(() => {
+          this.usuarioServicio.autentificacionEstadoUsuario()
           this.app.inicioS()
           this.app.aparecer()
         });
@@ -41,7 +42,7 @@ export class SesionComponent {
     loginGoogle(){
       this.usuarioServicio.loginWithGoogle().then(()=>{
         console.log("sesion iniciada")
-        this.router.navigate(['paginas/menu'])
+        
       }).catch(error=>console.log(error))
     }
 }

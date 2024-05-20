@@ -71,15 +71,18 @@
     </div>
     <div class="formularios">
         <div *ngIf="formulario" class="light-box">
-            <button class="cerrar animacion" (click)="desactivarFormulario($event)"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                </svg></button>
             <div *ngIf="permisoForm" class="permisoFormulario">
                 <form  method="POST" class="permisoFormulario">
-                <h3>Formulario de Permiso</h3>
+                    <div class="cerrarF">
+                        <h3>Permiso</h3>
+                        <button class="cerrar animacion" (click)="desactivarFormulario($event)"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg></button>
+                    </div>
+            
                 <label for="nombre">Nombre</label>
                 <input class="input" type="text">
                 <label for="apellido">Apellido</label>
@@ -107,13 +110,21 @@
                         </span>
                     </label>
                 </div>
-                <button class="botonSolicitud">Enviar</button>
+                <button class="botonSolicitud" (click)="enviarCorreoPrueba()">Enviar</button>
             </form>
             </div>
 
             <div *ngIf="quemaForm">
-                <form  method="POST" class="quemaFormulario">  
-                <h3>Formulario de Quema controlada</h3>
+                <form  method="POST" class="quemaFormulario">
+                    <div class="cerrarF">
+                        <h3>Quema Controlada</h3>
+                        <button class="cerrar animacion" (click)="desactivarFormulario($event)"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg></button>
+                    </div>  
                 <label for="nombre">Nombre</label>
                 <input class="input" type="text">
                 <label for="apellido">Apellido</label>
@@ -124,7 +135,7 @@
                 <input class="input" type="text">
                 <label for="descripcion">Descripcion</label>
                 <textarea class="descripcion" id="" cols="40" rows="10"></textarea>
-                <label for="soliciitud">Solicitud</label>
+                <label for="solicitud">Solicitud</label>
                 <div>
                     <input  multiple="true" type="file" class="estilo1" id="archivo">
                     <label for="archivo">
@@ -141,11 +152,19 @@
                         </span>
                     </label>
                 </div>
-                <button class="botonSolicitud">Enviar</button>
+                <button class="botonSolicitud" (click)="enviarCorreoPrueba()">Enviar</button>
                 </form>
             </div>
             <div *ngIf="capacitacionForm" class="capacitacionFormulario">
-                <h3>Formulario de Capacitaciones</h3>
+                <div class="cerrarF">
+                    <h3>Capacitaciones</h3>
+                    <button class="cerrar animacion" (click)="desactivarFormulario($event)"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg></button>
+                </div>
                 <form   class="capacitacionFormulario">
                 <label for="nombre">Nombre</label>
                 <input class="input" type="text"  id="nombre">
@@ -197,9 +216,15 @@
                         </span>
                     </label>
                 </div>
-                <button type="submit" class="botonSolicitud">Enviar</button>  
+                <button type="submit" class="botonSolicitud" (click)="enviarCorreoPrueba()">Enviar</button>  
             </form>
             </div>
         </div>
+    </div>
+    <div class="imagenes">
+        <img data-aos="flip-right" data-aos-duration="2000" class="img1" src="../assets/imagenes/428617002_2888248771315947_1290825286165791885_n.jpg" alt="imagen 1">
+        <img data-aos="flip-left" data-aos-duration="2000" class="img2" src="../assets/imagenes/409029430_2888116091329215_9108058529655700320_n.jpg" alt="imagen 2">
+        <img data-aos="flip-left" data-aos-duration="2000" class="img3" src="../assets/imagenes/392789065_2797167507090741_5683215607980644370_n.jpg" alt="imagen 3">
+        <img data-aos="flip-right" data-aos-duration="2000" class="img4" src="../assets/imagenes/IMG_3592 copia.jpg" alt="imagen 4" >
     </div>
 </div>

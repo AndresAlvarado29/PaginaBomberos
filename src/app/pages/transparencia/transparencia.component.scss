@@ -1,0 +1,27 @@
+mat-table{
+    background-color: black;
+}
+mat-header-cell{
+    background-color: black;
+    color: azure;
+    font-size: large;
+    text-transform: uppercase;
+    border: solid 1px white;
+}
+mat-cell{
+    
+    border: solid 1px white;
+}
+mat-row:nth-of-type(odd){
+background-color: rgb(222, 224, 224);
+}
+mat-row:nth-of-type(even){
+    background-color: rgb(165, 165, 165);
+}
+.tituloLC{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

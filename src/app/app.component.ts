@@ -16,6 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent {
   title = 'Bomberos Oña';
   isCollapsed: boolean = false;
+  isCollapsed2: boolean = false;
   botonColapso: boolean = false;
   currentUser: any;
   
@@ -33,23 +34,17 @@ ngOnInit(){
   setTimeout(() => {
     this.visualizar() // Realizar el cambio de forma asincrónica
   });
-  this.verificar();
   this.onResize();
   AOS.init();
   window.addEventListener('load',AOS.refresh);
-  this.routeA.queryParams.subscribe(params =>{
-    const role = params['role'];
-    console.log('Rol del usuario:', role);
-    if(role==='role'){
-      this.btnF=true;
-    }
-  })
 }
  btnF=false;
  noticias=true;
  carrusel=true;
  bCerrar=false;
  bInicio=true;
+ sacar=true;
+ meter=false;
 
  visualizar() {
   const currentUrl = this.router.url;
@@ -76,6 +71,11 @@ ngOnInit(){
     this.isCollapsed = !this.isCollapsed;
     this.animacionboton()
   }
+  toggleCollapse2() {
+    this.isCollapsed2 = !this.isCollapsed2;
+    this.meter=!this.meter;
+    this.sacar=!this.sacar;
+  }
 animacionboton(){
   var elemento = document.getElementById('colapso')
   if(elemento?.classList.contains('animacion4')){
@@ -99,6 +99,13 @@ verificar(){
   this.auth.onAuthStateChanged(user=>{
     if(user){
       this.inicioS()
+       this.routeA.queryParams.subscribe(params =>{
+    const role = params['role'];
+    console.log('Rol del usuario:', role);
+    if(role==='role'){
+      this.btnF=true;
+    }
+  })
     }
   });
 }

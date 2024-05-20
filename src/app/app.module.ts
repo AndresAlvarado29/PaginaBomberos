@@ -27,7 +27,6 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon'
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon'
     SesionComponent,
     RegistroComponent,
     MenuComponent,
+    
       
   ],
   imports: [

@@ -2,8 +2,30 @@
 table {
     width: 100%;
   }
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding:2rem;
+}
+.section1 {
+  label {
+      display: flex;
+      flex-direction: column;
+  }
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
   
   .mat-mdc-form-field {
     font-size: 14px;
     width: 100%;
   }
+#boton{
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
