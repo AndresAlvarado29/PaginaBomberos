@@ -14,6 +14,7 @@ import { keySecret } from 'src/llave/keySecret';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
+  hide = true;
   usuario: Usuario = new Usuario();
   private llave= keySecret.key
 constructor(private router: Router, private app:AppComponent, private servicioUsuario: UsuarioService, private encriptacion: EncriptacionService){}

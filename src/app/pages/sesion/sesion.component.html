@@ -1,7 +1,7 @@
 <div class="container">
     <div class="sesion">
-        <h1>Login</h1>
         <div class="formulario">
+            <h1>Login</h1>
             <div class="correo">
                 <label for="correo"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                         class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
@@ -19,8 +19,8 @@
                             d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
                     </svg></label>
                 <input type="password" placeholder="***************" [(ngModel)]="usuario.contrasena" id="contraseña"
-                    matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    matInput [type]="hide ? 'password' : 'text'" >
+                    <button class="boton4contra" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <svg *ngIf="hide" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
                         viewBox="0 0 16 16">
@@ -37,12 +37,12 @@
                 </button>
             </div>
             <div class="botones">
-                <button (click)="iniciar(usuario)">Iniciar Sesion</button>
+                <button class="botonIniciar" (click)="iniciar(usuario)">Iniciar Sesion</button>
                 <button class="botonGoogle" (click)="loginGoogle()"><img src="../assets/imagenes/googleLogo.png"
                         alt="logoGoogle"> Inicia con
                     Google</button>
             </div>
+            <a href="paginas/registro">no tienes cuenta?, registrate</a>
         </div>
-        <a href="paginas/registro">no tienes cuenta?, registrate</a>
     </div>
 </div>

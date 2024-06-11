@@ -1,7 +1,55 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .formulario {
     display: flex;
     flex-direction: column;
+    background-color: rgb(23, 105, 135);
     gap: 0.5rem;
+    padding: 0.5rem;
+    position: relative;
+    max-width: 500px;
+    top: 20px;
+    input{
+        height: 35px;
+        display: inline;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(225, 155, 14, 0.903);
+    }
+    .nombre{
+        &:hover{   
+            background-color: rgba(235, 188, 93, 0.903);
+        }
+    }
+    .apellido{
+        &:hover{   
+            background-color: rgba(235, 188, 93, 0.903);
+        }
+    }
+    .celular{
+        &:hover{   
+            background-color: rgba(235, 188, 93, 0.903);
+        }
+    }
+    .direccion{
+        &:hover{   
+            background-color: rgba(235, 188, 93, 0.903);
+        }
+    }
+    .correo{
+        &:hover{   
+            background-color: rgba(235, 188, 93, 0.903);
+        }
+    }
+    .contrasena{
+        &:hover{   
+            background-color: rgba(235, 188, 93, 0.903);
+        }
+    }
 }
 
 .section1 {
@@ -27,22 +75,33 @@
 .section3{
     display: flex;
     flex-direction: column;
-    width: 383px;
+    width: 250px;
+    gap: 0.5rem;
 }
+.boton4contra{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    left: 163px;
+    top: 321px;
+ }
 .botonesIncioSesion {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 
     .botonR {
-        width: 100px;
+        border: none;
+    border-radius: 5px;
     }
 
     .botonG {
-        width: 215px;
-        img {
-            width: 20px;
-            height: 20px;
-        }
+        border: none;
+    border-radius: 5px;
+    img{
+    width: 20px;
+    height: 20px;
+}
     }
 }
