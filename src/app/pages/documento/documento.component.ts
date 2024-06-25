@@ -1,6 +1,7 @@
 import { Component, ViewChild} from '@angular/core';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 import { AppComponent } from 'src/app/app.component';
 import { Documento } from 'src/app/domain/Documento';
 import { DocumentoService } from 'src/app/service/documento.service';
@@ -17,8 +18,8 @@ export class DocumentoComponent {
   selectedDocumento: Documento | null = null;
   displayedColumns: string[]=['Numero','Nombre','Año','Presupuesto','Ingresos','Egresos','Documento','Accion']
   dataSource= new MatTableDataSource<Documento>();
-  @ViewChild(MatTableDataSource)
-  table!: MatTableDataSource<Documento>;
+  @ViewChild(MatTableDataSource)table!: MatTableDataSource<Documento>;
+  @ViewChild(MatSort) sort!: MatSort;
   documento: Documento = new Documento();
   filtroBusqueda: string = '';
 
@@ -86,6 +87,11 @@ actualizar(documento: Documento) {
     this.limpiarInputArchivo();
 }
 ngOnInit(){
+  this.documentoService.getAll().subscribe(data => {
+    data.sort((a, b) => a.anio - b.anio);
+    this.dataSource.data = data;
+    this.dataSource.sort = this.sort;
+  });
   setTimeout(() => {
     this.visualizar() // Realizar el cambio de forma asincrónica
   });

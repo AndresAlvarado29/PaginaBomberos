@@ -1,10 +1,11 @@
 mat-table{
     background-color: black;
+    height: auto;
 }
 mat-header-cell{
     background-color: black;
     color: azure;
-    font-size: large;
+    font-size: small;
     text-transform: uppercase;
     border: solid 1px white;
 }
@@ -24,4 +25,14 @@ mat-row:nth-of-type(even){
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.filtro{
+    display: flex;
+    margin-bottom: 1rem;
+    border: none;
+    border-bottom: 2px solid black;
+    &:focus{
+        border-radius: 0.5px;
+        background-color: rgb(206, 208, 208);
+    }
 }

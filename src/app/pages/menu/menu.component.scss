@@ -1,4 +1,30 @@
 .menu{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 1rem;
+    margin: 0 auto;
+    width: 75%;
+    gap:0.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,355px),1fr));
+    .tarjeta{
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 2px 2px 2px rgb(76, 75, 75);
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        span{
+            color: rgb(0, 5, 139);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+           text-decoration: none; 
+           font-weight: bold;
+        }
+        &:hover{
+            background-color: rgba(123, 123, 123, 0.319);
+        }
+    }
 }

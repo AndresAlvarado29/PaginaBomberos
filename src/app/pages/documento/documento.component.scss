@@ -1,12 +1,48 @@
 /* Structure */
-table {
-    width: 100%;
+mat-table{
+  background-color: black;
+  height: auto;
+  width: auto;
+}
+mat-header-cell{
+  background-color: black;
+  color: azure;
+  font-size: small;
+  text-transform: uppercase;
+  border: solid 1px white;
+}
+mat-cell{
+  border: solid 1px white;
+}
+mat-row:nth-of-type(odd){
+background-color: rgb(222, 224, 224);
+}
+mat-row:nth-of-type(even){
+  background-color: rgb(165, 165, 165);
+}
+.tituloLC{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filtro{
+  display: flex;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 2px solid black;
+  &:focus{
+      border-radius: 0.5px;
+      background-color: rgb(206, 208, 208);
   }
+}
   .formulario {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding:2rem;
+    height: 350px;
 }
 .section1 {
   label {
@@ -28,4 +64,43 @@ table {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+}
+
+//estilado de los input file
+.estilo1{
+  display: none;
+}
+.estilo1 + label{
+  display: flex;
+  flex: 1;
+}
+.estilo1-name{
+  background:#EEE;
+  border: 1px solid #CACACA;
+  flex: 1;
+  border-radius: 4px 0 0 4px;
+}
+.estilo1-name span{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
+  display: block;
+}
+.estilo1-button{
+  background: #5bc0de;
+  border: 1px solod #4ba0ba;
+  color: white;
+  white-space: nowrap;
+  border-radius: 0 4px 4px 0;
+  padding-left: 30px;
+  cursor: pointer;
+}
+.estilo1-name,
+.estilo1-button{
+  padding: 5px 10px;
+}
+.descripcion{
+  resize: none;
+  overflow: auto;
 }

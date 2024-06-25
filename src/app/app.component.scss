@@ -276,6 +276,7 @@
 
 .navbar-links a {
   color: white;
+  gap: 2rem;
   text-decoration: none;
   padding: 14px 20px;
   font-weight: bold;
@@ -304,6 +305,7 @@
     position: absolute;
     right: 0;
     top:auto;
+    z-index: 1;
     a{
         text-decoration: none;
     }

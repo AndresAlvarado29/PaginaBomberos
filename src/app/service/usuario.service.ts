@@ -21,7 +21,6 @@ usuarioRef= collection(this.firestore, 'Usuario');
     this.auth.onAuthStateChanged(user=>{
       if(user){
         this.getUserData(user.uid)
-        console.log("ingreso un usuario")
       }
     });
   }
@@ -66,11 +65,12 @@ usuarioRef= collection(this.firestore, 'Usuario');
     return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
   redirectUserByRole(){
+    console.log("ingreso de "+this.userData.rol)
     if(this.userData && this.userData.rol){
       if(this.userData.rol === 'usuario'){
         this.router.navigate(['/']);
       }else if (this.userData.rol === 'administrador'){
-        this.router.navigate(['/'], { queryParams: { role: 'role' }});
+        this.router.navigate(['/'], { queryParams: { role: this.userData.rol }});
       }
     }
   }

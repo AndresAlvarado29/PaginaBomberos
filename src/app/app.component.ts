@@ -33,6 +33,8 @@ export class AppComponent {
 ngOnInit(){
   setTimeout(() => {
     this.visualizar() // Realizar el cambio de forma asincrónica
+    this.verificar()
+    this.usuarioService.autentificacionEstadoUsuario()
   });
   this.onResize();
   AOS.init();
@@ -60,9 +62,11 @@ ngOnInit(){
  cerrarS(){
   this.bInicio=true;
   this.bCerrar=false;
+  this.isCollapsed2=false;
  }
   ocultar(){
     this.carrusel=false;
+    this.isCollapsed2=false;
   }
   aparecer(){
     this.carrusel=true;
@@ -102,7 +106,7 @@ verificar(){
        this.routeA.queryParams.subscribe(params =>{
     const role = params['role'];
     console.log('Rol del usuario:', role);
-    if(role==='role'){
+    if(role==='administrador'){
       this.btnF=true;
     }
   })

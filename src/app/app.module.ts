@@ -26,6 +26,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon'
+import { MatSortModule } from '@angular/material/sort';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -44,11 +46,13 @@ import { MatIconModule } from '@angular/material/icon'
   imports: [
     MatTableModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
+    MatSortModule,
     HttpClientModule,
     AngularFireModule,
     provideFirebaseApp(() => initializeApp({"projectId":"bomberosproject","appId":"1:793810426032:web:64869b8f04cf2aa3080375","storageBucket":"bomberosproject.appspot.com","apiKey":"AIzaSyDO4QpybFPmAX_UhY351VKfZoE1MbBqC_k","authDomain":"bomberosproject.firebaseapp.com","messagingSenderId":"793810426032"})),
