@@ -16,7 +16,7 @@ export class ArchivoClienteService {
 
   constructor(private firestore: Firestore) { }
 
-  async subirArchivo(file: File): Promise<string> {
+  async subirArchivo(file: File, onProgress:(progress:number)=>void): Promise<string> {
     const filePath = `archivosParaSolicitudes/${Date.now()}_${file.name}`;
     const fileRef = ref(this.storage, filePath);
     const uploadTask = uploadBytesResumable(fileRef, file);
@@ -24,6 +24,7 @@ export class ArchivoClienteService {
       uploadTask.on('state_changed',
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          onProgress(progress);
           console.log('Progreso de la carga:', progress);
         },
         (error) => {
@@ -40,7 +41,7 @@ export class ArchivoClienteService {
       );
     });
   }
-  async subirArchivos(files: File[]): Promise<string[]> {
+  async subirArchivos(files: File[],onProgress:(progress:number)=>void): Promise<string[]> {
     const uploadPromises = files.map(file => {
       return new Promise<string>((resolve, reject) => {
         const filePath = `archivosParaSolicitudes/${Date.now()}_${file.name}`;
@@ -50,6 +51,7 @@ export class ArchivoClienteService {
         uploadTask.on('state_changed',
           (snapshot) => {
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            onProgress(progress);
             console.log('Progreso de la carga:', progress);
           },
           (error) => {

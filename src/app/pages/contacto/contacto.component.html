@@ -1,18 +1,22 @@
 <div class="container contacto">
     <div class="izquierda">
         <div class="formulario">
+            <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm" >
             <h1>Formulario</h1>
-            <label for="">Nombre</label>
-            <input class="input" type="text">
-            <label for="">Correo</label>
-            <input class="input" type="email">
-            <label for="">Celular</label>
-            <input class="input" type="text">
-            <label for="">Direccion</label>
-            <input class="input" type="text">
-            <label for="">Mensaje</label>
-            <textarea></textarea>
-            <button class="boton">Enviar</button>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" class="input" type="text" ngModel required>
+            <label for="apellido">Apellido</label>
+            <input id="apellido" name="apellido" class="input" type="text" ngModel required>
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" class="input" type="email" ngModel required>
+            <label for="celular">Celular</label>
+            <input id="celular" name="celular" class="input" type="text" ngModel required>
+            <label for="direccion">Direccion</label>
+            <input id="direccion" name="direccion"  class="input" type="text" ngModel required>
+            <label for="descripcion">Descripcion</label>
+            <textarea id="descripcion" name="descripcion" class="descripcion" id="" cols="40" rows="10" ngModel required></textarea>
+            <button class="botonSolicitud" type="submit">Enviar</button>
+        </form>
         </div>
     </div>
     <div class="derecha">

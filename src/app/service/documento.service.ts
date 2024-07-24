@@ -33,13 +33,14 @@ export class DocumentoService {
     console.log(collectionData(this.documentoRef, { idField: 'uid' }) as Observable<Documento[]>)
     return collectionData(this.documentoRef, { idField: 'uid' }) as Observable<Documento[]>
   }
-  async subirArchivo(file: File, documento: Documento) {
+  async subirArchivo(file: File,onProgress:(progress:number)=>void, documento: Documento) {
     const filePath = `archivos/${file.name}`;
     const fileRef = ref(this.storage, filePath);
     const uploadFile = uploadBytesResumable(fileRef, file);
     uploadFile.on('state_changed',
       (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        onProgress(progress);
         console.log('Progreso de la carga:', progress)
       },
       (error) => {

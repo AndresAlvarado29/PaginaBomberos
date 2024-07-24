@@ -1,3 +1,8 @@
+<div *ngIf="isUploading" class="loading-screen">
+  <div class="spinner"></div>
+  <p>{{ uploadProgress.toFixed(0) }}%</p>
+  <p>Subiendo archivos, por favor espere...</p>
+</div>
 <div class="container-fluid">
   <h1 class="tituloLC">Rendiciones de Cuentas</h1>   
   <label for="filtro">Filtro</label> <input class="filtro" matInput type="text" placeholder="Ex. 2022" [(ngModel)]="filtroBusqueda" (input)="aplicarFiltroBusqueda()" #input>

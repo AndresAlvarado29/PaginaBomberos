@@ -22,7 +22,9 @@ export class DocumentoComponent {
   @ViewChild(MatSort) sort!: MatSort;
   documento: Documento = new Documento();
   filtroBusqueda: string = '';
-
+  isUploading = false;
+  uploadProgress = 0;
+  
  constructor(private documentoService: DocumentoService, private router:Router, private app: AppComponent){
   this.listaDocumentosFire= documentoService.getAll();
   let params = this.router.getCurrentNavigation()?.extras.queryParams;
@@ -38,9 +40,12 @@ export class DocumentoComponent {
  
  async guardar(documento: Documento) {
   try {
+    this.isUploading = true;
     if (!documento.uid) {
       if(this.documentoCargado){
-        const response =await this.documentoService.subirArchivo(this.documentoCargado,documento)
+        const response =await this.documentoService.subirArchivo(this.documentoCargado,(progress)=>{
+          this.uploadProgress = progress;
+        },documento)
         console.log("Documento creado:", response);
         this.documento = new Documento();
         this.limpiarInputArchivo();
@@ -49,7 +54,9 @@ export class DocumentoComponent {
         }
     } else {
       if(this.documentoCargado){
-      const actualizacion = await this.documentoService.subirArchivo(this.documentoCargado, documento);
+      const actualizacion = await this.documentoService.subirArchivo(this.documentoCargado,(progress)=>{
+        this.uploadProgress = progress;
+      }, documento);
       console.log("Documento actualizado:", actualizacion);
       this.documento = new Documento();
       this.limpiarInputArchivo();
