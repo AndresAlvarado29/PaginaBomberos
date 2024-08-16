@@ -59,6 +59,8 @@ usuarioRef= collection(this.firestore, 'Usuario');
     return signInWithEmailAndPassword(this.auth, email, password);
   }
   logout(){
+    localStorage.removeItem('btnAdmin')
+    console.log(localStorage)
     return signOut(this.auth);
   }
   loginWithGoogle(){
@@ -70,6 +72,8 @@ usuarioRef= collection(this.firestore, 'Usuario');
       if(this.userData.rol === 'usuario'){
         this.router.navigate(['/']);
       }else if (this.userData.rol === 'administrador'){
+        localStorage.setItem('btnAdmin','true')
+        console.log(localStorage)
         this.router.navigate(['/'], { queryParams: { role: this.userData.rol }});
       }
     }

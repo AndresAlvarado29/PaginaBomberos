@@ -40,7 +40,7 @@ ngOnInit(){
   AOS.init();
   window.addEventListener('load',AOS.refresh);
 }
- btnF=false;
+ btnAdmin=false;
  noticias=true;
  carrusel=true;
  bCerrar=false;
@@ -107,7 +107,7 @@ verificar(){
     const role = params['role'];
     console.log('Rol del usuario:', role);
     if(role==='administrador'){
-      this.btnF=true;
+      this.btnAdmin=true;
     }
   })
     }

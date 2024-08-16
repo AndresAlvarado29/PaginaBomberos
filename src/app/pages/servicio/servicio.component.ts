@@ -39,8 +39,33 @@ export class ServicioComponent {
 }
 onFilesSelected(event: any) {
   this.documentosCargados = Array.from(event.target.files);
+  if(this.documentosCargados.length>5){
+    Swal.fire({
+      icon: 'error',
+      title: 'Demasiados archivos',
+      text: 'Solo puedes subir hasta 5 archivos.',
+    });
+    return;
+  }
 }
 onSubmit(form: any, event: MouseEvent) {
+  if (!form.valid) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Formulario inválido',
+      text: 'Por favor, complete todos los campos requeridos antes de enviar.',
+    });
+    return;
+  }
+
+  if (this.documentosCargados.length > 0 && this.documentosCargados.some(file => file.size > 10 * 1024 * 1024)) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Archivo demasiado grande',
+      text: 'Uno o más archivos superan el tamaño máximo permitido de 10MB.',
+    });
+    return;
+  }
   this.isUploading = true;
   this.uploadProgress = 0;
   if (this.documentosCargados.length > 0) {
@@ -91,6 +116,14 @@ sendEmail(form:any, fileUrl?: string[]){
 }
 //envio de datos del formulario de capacitaciones 
 onSubmitCapacitaciones(form: any,event: MouseEvent) {
+  if (!form.valid || this.selectedCapacitaciones.length === 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Formulario inválido',
+      text: 'Por favor, complete todos los campos requeridos antes de enviar.',
+    });
+    return;
+  }
   this.isUploading = true;
   this.uploadProgress = 0;
   console.log(this.selectedCapacitaciones);

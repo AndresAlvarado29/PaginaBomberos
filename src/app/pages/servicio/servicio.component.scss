@@ -18,13 +18,13 @@
 .botonSolicitud {
     width: 90px;
     border-radius: 5px;
-    border: 2px blue solid;
+    border: 2px #255a82 solid;
     background-color: transparent;
-    color: blue;
+    color: #255a82;
     margin:2px 2px 2px 2px;
 
     &:hover {
-        background-color: blue;
+        background-color: #255a82;
         color: white;
     }
 
@@ -43,6 +43,18 @@
         }
     }
 
+}
+.botonSolicitud2 {
+    width: 90px;
+    border-radius: 5px;
+    border: 2px #255a82 solid;
+    background-color: #255a82;
+    color: white;
+    margin:2px 2px 2px 2px;
+
+    &:hover {
+        background-color: #5792bf;  
+    }
 }
 
 .capacitaciones {
@@ -185,8 +197,8 @@
     display: block;
 }
 .estilo1-button{
-    background: #5bc0de;
-    border: 1px solod #4ba0ba;
+    background: #255a82;
+    border: 1px solod #255a82;
     color: white;
     white-space: nowrap;
     border-radius: 0 4px 4px 0;

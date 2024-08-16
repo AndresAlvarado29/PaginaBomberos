@@ -81,7 +81,10 @@
         display: flex;
     }
 }  
-
+.cuerpo{
+    padding-top: 1rem;
+    padding-bottom: 3.6rem;
+}
 .presentacion{
     @media (max-width: 530px){   
        .info-unidad{
@@ -98,13 +101,16 @@
         font-weight: bold;
     }
     display: flex;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     flex-direction: column;
     gap: 50px;
 }
 .info{
     border: 3px black solid;
     padding: 2rem;
+    background-color:  #212121;
+    color: white;
+    border-radius: 10px;
 }
 .info-unidad{
     display: flex;
@@ -157,6 +163,7 @@
 }
 
 .imagenes{
+    padding: 0.5rem;
     margin: 0 auto;
     //width: 75%;
     display: grid;
@@ -169,6 +176,7 @@
     } 
 }
 .pieDePagina{
+    z-index: 3;
     padding-top: 10px;
     position: fixed;
     bottom: 0;
@@ -422,4 +430,56 @@ img{
     width: 50px;
     height: 50px;
     background-color: #255a82;
+}
+
+//noticias
+.contenedorNot{
+    background-image: url(../assets/imagenes/369718224_2765024086971750_1091256466220870555_n.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 1rem;
+    &::before{
+        content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(247, 93, 46, 0.397); /* Naranja translúcido */
+    z-index: 1;
+    }
+}
+.cont-noticias{
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    margin: 0 auto;
+    width: 75%;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,355px),1fr));
+}
+.noticias{
+    z-index: 2;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48pt;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+.tituloGaleria{
+    background-color: #212121;
+    color: #FFFFFF;
+}
+.separador{
+    color: transparent;
 }

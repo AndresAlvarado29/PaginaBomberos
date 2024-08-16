@@ -1,8 +1,3 @@
-.container{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
 .derecha{
     display: flex;
     flex-direction: column;
@@ -17,14 +12,32 @@
     }
 }
 .contacto{
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    margin: 0 auto;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,355px),1fr));
+    .tarjeta{
+    aspect-ratio: 3/2;
+    object-fit: cover;
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    }
+    .mapa{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem;
+    }
 }
 .formulario{
+    position: relative;
+    padding: 4rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     .input{
         display: flex;
         width: 250px;
@@ -33,6 +46,18 @@
         border: none;
         border-bottom: 1px solid black;
         background-color: rgba(194, 194, 194, 0.678);
+    }
+    .botonSolicitud{
+       display: flex;
+       background-color: transparent;
+       border-radius: 3px;
+       border: 1px solid #255a82;
+       color: #255a82;
+       flex-direction: column;
+       &:hover{
+        background-color: #255a82;
+        color: white;
+       }
     }
     & .input:hover{
         opacity: 0.5;
@@ -49,21 +74,4 @@
     & textarea:hover{
         opacity: 0.5;
     }
-    .boton{
-        border-radius: 5px;
-        margin:10px;
-    }
-}
-
-@media screen and (max-width: 844px) {
-    .mapa {
-        display: flex;
-    position: relative;
-    flex-direction: column;
-    top: 192px;
-    right: 366px;
-    justify-content: center;
-    align-items: center;
-    min-height: 491px;
-    }    
 }
