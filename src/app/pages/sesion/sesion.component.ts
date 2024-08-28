@@ -4,7 +4,8 @@ import { AppComponent } from 'src/app/app.component';
 import { Usuario } from 'src/app/domain/Usuario';
 import { EncriptacionService } from 'src/app/service/encriptacion.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
-import { keySecret } from 'src/llave/keySecret';
+import { environment } from 'src/environments/environment';
+import Swal, { SweetAlertArrayOptions } from 'sweetalert2';
 
 @Component({
   selector: 'app-sesion',
@@ -13,7 +14,7 @@ import { keySecret } from 'src/llave/keySecret';
 })
 export class SesionComponent {
   hide = true;
-  private llave= keySecret.key;
+  private llave= environment.key;
   usuario = new Usuario()
   constructor(private router: Router, private app: AppComponent, private usuarioServicio: UsuarioService, private encriptar: EncriptacionService){}
   
@@ -37,7 +38,13 @@ export class SesionComponent {
           this.app.inicioS()
           this.app.aparecer()
         });
-      }).catch(error=> console.log(error));
+      }).catch(error=> {
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: error,
+        });
+      });
     }
     loginGoogle(){
       this.usuarioServicio.loginWithGoogle().then(()=>{

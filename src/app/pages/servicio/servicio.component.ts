@@ -3,17 +3,17 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { ArchivoClienteService } from 'src/app/service/archivo-cliente.service';
-import { keysSecret } from 'src/llave/keySecretApiMail';
-import Swal, { SweetAlertArrayOptions } from 'sweetalert2';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-servicio',
   templateUrl: './servicio.component.html',
   styleUrls: ['./servicio.component.scss']
 })
 export class ServicioComponent {
-  private llaveMail= keysSecret.keyMailService;
-  private llaveTemplate= keysSecret.keyTemplateService;
-  private llavePublica= keysSecret.PublicKey;
+  private llaveMail= environment.keyMailService;
+  private llaveTemplate= environment.keyTemplateService;
+  private llavePublica= environment.PublicKey;
   permisoForm=false
   documentosCargados: File[] = [];
   selectedCapacitaciones: string[] = [];
@@ -48,15 +48,75 @@ onFilesSelected(event: any) {
     return;
   }
 }
-onSubmit(form: any, event: MouseEvent) {
-  if (!form.valid) {
+validateForm(form: any): boolean {
+  const nombreApellidoPattern = /^[a-zA-Z\s]+$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const phonePattern = /^\d{10}$/;
+
+  if (!form.value.nombre || form.value.nombre.trim() === '') {
     Swal.fire({
-      icon: 'error',
-      title: 'Formulario inválido',
-      text: 'Por favor, complete todos los campos requeridos antes de enviar.',
+      icon: 'warning',
+      title: 'Datos Faltantes',
+      text: 'El campo nombre es obligatorio.',
     });
-    return;
+    return false;
+  } else if (!nombreApellidoPattern.test(form.value.nombre)) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Formulario Invalido',
+      text: 'No ingrese números o signos especiales en el nombre.',
+    });
+    return false;
   }
+
+  if (!form.value.apellido || form.value.apellido.trim() === '') {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Datos Faltantes',
+      text: 'El campo apellido es obligatorio.',
+    });
+    return false;
+  } else if (!nombreApellidoPattern.test(form.value.apellido)) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Formulario Invalido',
+      text: 'No ingrese números o signos especiales en el apellido.',
+    });
+    return false;
+  }
+
+  if (!form.value.correo || !emailPattern.test(form.value.correo)) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Formulario Invalido',
+      text: 'Por favor, ingrese un correo electrónico válido.',
+    });
+    return false;
+  }
+
+  if (!form.value.celular || !phonePattern.test(form.value.celular)) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Formulario Invalido',
+      text: 'Por favor, ingrese un número de celular válido (10 dígitos).',
+    });
+    return false;
+  }
+
+  if (!form.value.descripcion || form.value.descripcion.trim() === '') {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Formulario Invalido',
+      text: 'El campo descripción es obligatorio.',
+    });
+    return false;
+  }
+
+  return true;
+}
+
+onSubmit(form: any, event: MouseEvent) {
+  if (!this.validateForm(form)) return;
 
   if (this.documentosCargados.length > 0 && this.documentosCargados.some(file => file.size > 10 * 1024 * 1024)) {
     Swal.fire({
@@ -66,17 +126,19 @@ onSubmit(form: any, event: MouseEvent) {
     });
     return;
   }
+
   this.isUploading = true;
   this.uploadProgress = 0;
+
   if (this.documentosCargados.length > 0) {
-    this.archivoClienteService.subirArchivos(this.documentosCargados,(progress)=>{
+    this.archivoClienteService.subirArchivos(this.documentosCargados, (progress) => {
       this.uploadProgress = progress;
     }).then(urls => {
-      this.sendEmail(form,urls);
+      this.sendEmail(form, urls);
       this.isUploading = false;
-      setTimeout(()=>{
-        this.desactivarFormulario(event)
-      },3000)
+      setTimeout(() => {
+        this.desactivarFormulario(event);
+      }, 3000);
     }).catch(error => {
       console.error('Error al subir los archivos:', error);
       this.isUploading = false;
@@ -86,7 +148,8 @@ onSubmit(form: any, event: MouseEvent) {
     this.isUploading = false;
   }
 }
-sendEmail(form:any, fileUrl?: string[]){
+
+sendEmail(form: any, fileUrl?: string[]) {
   const templateParams = {
     nombre: form.value.nombre,
     apellido: form.value.apellido,
@@ -95,14 +158,13 @@ sendEmail(form:any, fileUrl?: string[]){
     descripcion: form.value.descripcion,
     file_url: fileUrl || []
   };
-  console.log(fileUrl);
- 
+
   emailjs.send(this.llaveMail, this.llaveTemplate, templateParams, this.llavePublica)
     .then((response: EmailJSResponseStatus) => {
       console.log('Success!', response.status, response.text);
       Swal.fire({
-        title: "Se a enviado Correctamente el Correo",
-        text: "Haz click en el boton",
+        title: "Se ha enviado Correctamente el Correo",
+        text: "Haz click en el botón",
         icon: "success"
       });
     }, (error) => {
@@ -116,11 +178,12 @@ sendEmail(form:any, fileUrl?: string[]){
 }
 //envio de datos del formulario de capacitaciones 
 onSubmitCapacitaciones(form: any,event: MouseEvent) {
-  if (!form.valid || this.selectedCapacitaciones.length === 0) {
+  if (!this.validateForm(form)) return;
+  if (this.documentosCargados.length > 0 && this.documentosCargados.some(file => file.size > 10 * 1024 * 1024)) {
     Swal.fire({
       icon: 'error',
-      title: 'Formulario inválido',
-      text: 'Por favor, complete todos los campos requeridos antes de enviar.',
+      title: 'Archivo demasiado grande',
+      text: 'Uno o más archivos superan el tamaño máximo permitido de 10MB.',
     });
     return;
   }

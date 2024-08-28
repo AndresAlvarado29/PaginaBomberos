@@ -56,11 +56,13 @@ usuarioRef= collection(this.firestore, 'Usuario');
       return setDoc(usuarioRefC, usuarioPlano);
   }
   login({email,password}:any){
+    this.router.navigate(['/']);
     return signInWithEmailAndPassword(this.auth, email, password);
   }
   logout(){
     localStorage.removeItem('btnAdmin')
     console.log(localStorage)
+    this.router.navigate(['/']);
     return signOut(this.auth);
   }
   loginWithGoogle(){
@@ -70,7 +72,7 @@ usuarioRef= collection(this.firestore, 'Usuario');
     console.log("ingreso de "+this.userData.rol)
     if(this.userData && this.userData.rol){
       if(this.userData.rol === 'usuario'){
-        this.router.navigate(['/']);
+        localStorage.removeItem('btnAdmin');
       }else if (this.userData.rol === 'administrador'){
         localStorage.setItem('btnAdmin','true')
         console.log(localStorage)

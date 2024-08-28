@@ -45,3 +45,8 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+#apikeys
+src\environments
+/environments
+.environments

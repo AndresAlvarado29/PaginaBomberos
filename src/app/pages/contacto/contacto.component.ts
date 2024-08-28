@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { keysSecret } from 'src/llave/keySecretApiMail';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto',
@@ -43,35 +44,63 @@ export class ContactoComponent {
   }
 
   validateForm(form: any): boolean {
+    const nombreApellidoPattern = /^[a-zA-Z\s]+$/;
     if (!form.value.nombre || form.value.nombre.trim() === '') {
-      alert('El campo nombre es obligatorio.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Datos Faltantes',
+        text: 'El campo nombre es obligatorio',
+      });
+      return false;
+    }else if(!nombreApellidoPattern.test(form.value.nombre)){
+      Swal.fire({
+        icon: 'warning',
+        title: 'Formulario Invalido',
+        text: 'No ingrese números o signos especiales',
+      }); 
       return false;
     }
 
-    if (!form.value.apellido || form.value.apellido.trim() === '') {
-      alert('El campo apellido es obligatorio.');
-      return false;
-    }
+    if (!form.value.apellido || form.value.apellido.trim() === '') {Swal.fire({
+      icon: 'warning',
+      title: 'Datos Faltantes',
+      text: 'El campo apellido es obligatorio',
+    });
+    return false;
+  }else if(!nombreApellidoPattern.test(form.value.apellido)){
+    Swal.fire({
+      icon: 'warning',
+      title: 'Formulario Invalido',
+      text: 'No ingrese numeros o signos especiales',
+    }); 
+    return false;
+  }
 
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!form.value.correo || !emailPattern.test(form.value.correo)) {
-      alert('Por favor, ingrese un correo electrónico válido.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Formulario Invalido',
+        text: 'Por favor, ingrese un correo electrónico válido.',
+      }); 
       return false;
     }
 
-    const phonePattern = /^\d{10}$/; // Asume un número de teléfono de 10 dígitos
+    const phonePattern = /^\d{10}$/; 
     if (!form.value.celular || !phonePattern.test(form.value.celular)) {
-      alert('Por favor, ingrese un número de celular válido (10 dígitos).');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Formulario Invalido',
+        text: 'Por favor, ingrese un número de celular válido (10 dígitos).',
+      }); 
       return false;
     }
-
-    if (!form.value.direccion || form.value.direccion.trim() === '') {
-      alert('El campo dirección es obligatorio.');
-      return false;
-    }
-
     if (!form.value.descripcion || form.value.descripcion.trim() === '') {
-      alert('El campo descripción es obligatorio.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Formulario Invalido',
+        text: 'El campo descripción es obligatorio.',
+      }); 
       return false;
     }
 

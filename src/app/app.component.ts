@@ -31,10 +31,15 @@ export class AppComponent {
   }
   }
 ngOnInit(){
+  this.auth.onAuthStateChanged(user => {
+    if (user) {
+      this.usuarioService.getUserData(user.uid);  // Obtener los datos del usuario
+      this.verificar();  // Verificar el rol y actualizar la UI
+      this.inicioS();  // Actualizar la interfaz de usuario para mostrar el estado de sesión
+    }
+  });
   setTimeout(() => {
     this.visualizar() // Realizar el cambio de forma asincrónica
-    this.verificar()
-    this.usuarioService.autentificacionEstadoUsuario()
   });
   this.onResize();
   AOS.init();
@@ -63,6 +68,8 @@ ngOnInit(){
   this.bInicio=true;
   this.bCerrar=false;
   this.isCollapsed2=false;
+  this.btnAdmin = false;
+  localStorage.removeItem('btnAdmin');
  }
   ocultar(){
     this.carrusel=false;
@@ -100,16 +107,12 @@ cerrar(){
   console.log("sesion cerrada")
 }
 verificar(){
-  this.auth.onAuthStateChanged(user=>{
+  this.auth.onAuthStateChanged(user => {
     if(user){
-      this.inicioS()
-       this.routeA.queryParams.subscribe(params =>{
-    const role = params['role'];
-    console.log('Rol del usuario:', role);
-    if(role==='administrador'){
-      this.btnAdmin=true;
-    }
-  })
+      this.inicioS();
+      if (localStorage.getItem('btnAdmin') === 'true') {
+        this.btnAdmin = true;  // Mostrar el botón de administrador si está guardado en localStorage
+      }
     }
   });
 }
