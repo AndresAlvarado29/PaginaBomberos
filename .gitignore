@@ -51,4 +51,7 @@ src/environments
 /environments
 .environments
 ./environments
-/claves
+/apikeys
+llaves.ts
+./apikeys
+src/apikeys
