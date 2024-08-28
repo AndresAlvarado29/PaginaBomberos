@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
-import { keysSecret } from 'src/llave/keySecretApiMail';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./contacto.component.scss']
 })
 export class ContactoComponent {
-  private llaveMail = keysSecret.keyMailService;
-  private llaveTemplate = keysSecret.keyTemplateService;
-  private llavePublica = keysSecret.PublicKey;
+  private llaveMail = environment.keyMailService;
+  private llaveTemplate = environment.keyTemplateService;
+  private llavePublica = environment.PublicKey;
 
   constructor(private router: Router, private app: AppComponent) {}
 
