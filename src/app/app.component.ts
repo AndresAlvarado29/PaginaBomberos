@@ -45,6 +45,19 @@ ngOnInit(){
   AOS.init();
   window.addEventListener('load',AOS.refresh);
 }
+
+ngAfterViewInit(): void {
+  let visitas: number;
+  const storedVisitas = localStorage.getItem('contador_visitas');
+  visitas = storedVisitas ? parseInt(storedVisitas, 10) : 0;
+  visitas++;
+  localStorage.setItem('contador_visitas', visitas.toString());
+  const contadorElemento = document.getElementById('contador');
+  if (contadorElemento) {
+    contadorElemento.textContent = visitas.toString();
+  }
+}
+
  btnAdmin=false;
  noticias=true;
  carrusel=true;
@@ -52,10 +65,10 @@ ngOnInit(){
  bInicio=true;
  sacar=true;
  meter=false;
+ 
 
  visualizar() {
   const currentUrl = this.router.url;
-  console.log(currentUrl)
   if (currentUrl === '/') {
     this.aparecer()
   }
@@ -116,6 +129,4 @@ verificar(){
     }
   });
 }
-
-
 }

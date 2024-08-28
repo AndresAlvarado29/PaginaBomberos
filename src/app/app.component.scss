@@ -83,7 +83,6 @@
 }  
 .cuerpo{
     padding-top: 1rem;
-    padding-bottom: 3.6rem;
 }
 .presentacion{
     @media (max-width: 530px){   
@@ -178,14 +177,13 @@
 .pieDePagina{
     z-index: 3;
     padding-top: 10px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #7c0808;
-    max-height: 100px;
     flex-direction: column;
         span{
             color: #FFB400;
@@ -482,4 +480,24 @@ img{
 }
 .separador{
     color: transparent;
+}
+.cont-pie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-direction: row;
+}
+.contador{
+   display: flex;
+   flex-direction: column; 
+   justify-content: center;
+   align-items: center;
+}
+.imagenEcu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100px;
+    width: 100px;
 }
