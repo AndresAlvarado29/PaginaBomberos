@@ -47,6 +47,7 @@ Thumbs.db
 .runtimeconfig.json
 
 #apikeys
-src\environments
+src/environments
 /environments
 .environments
+./environments
