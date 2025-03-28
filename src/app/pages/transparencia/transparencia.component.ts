@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { Documento } from 'src/app/domain/Documento';
-import { DocumentoService } from 'src/app/service/documento.service';
+import { DocumentoService } from 'src/app/service/documentService/documento.service';
 
 @Component({
   selector: 'app-transparencia',
@@ -12,7 +12,7 @@ import { DocumentoService } from 'src/app/service/documento.service';
   styleUrls: ['./transparencia.component.scss']
 })
 export class TransparenciaComponent implements OnInit {
-  displayedColumns: string[] = ['Numero', 'Nombre', 'Año', 'Presupuesto', 'Ingresos', 'Egresos', 'Documento'];
+  displayedColumns: string[] = ['Nombre', 'Año', 'Presupuesto', 'Ingresos', 'Egresos', 'Documento'];
   dataSource: MatTableDataSource<Documento>;
   filtroBusqueda: string = '';
   @ViewChild(MatTableDataSource)table!: MatTableDataSource<Documento>;

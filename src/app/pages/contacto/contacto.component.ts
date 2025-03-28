@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/envs/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -34,7 +34,7 @@ export class ContactoComponent {
         descripcion: form.value.descripcion,
       };
 
-      emailjs.send(this.llaveMail, this.llaveTemplate, templateParams, this.llavePublica)
+      emailjs.send(this.llaveMail || '', this.llaveTemplate || '', templateParams, this.llavePublica || '')
         .then((response: EmailJSResponseStatus) => {
           console.log('Success!', response.status, response.text);
         }, (error) => {

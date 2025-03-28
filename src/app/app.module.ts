@@ -28,7 +28,8 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon'
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { configFirebase } from 'src/apikeys/firebaseconfig';
+import environment from 'src/envs/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,8 +55,7 @@ import { configFirebase } from 'src/apikeys/firebaseconfig';
     MatFormFieldModule,
     MatSortModule,
     HttpClientModule,
-    AngularFireModule,
-    provideFirebaseApp(() => initializeApp(configFirebase.firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(environment.environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideAuth(() => getAuth()),

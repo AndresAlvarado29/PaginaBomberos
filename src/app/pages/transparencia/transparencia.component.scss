@@ -1,3 +1,11 @@
+body{
+    background: linear-gradient(to bottom, #330000, #CC3333);
+    margin: 0;
+    height: 100vh;
+}
+.contTabla{
+    background-color: transparent;
+}
 mat-table{
     background-color: black;
     height: auto;
@@ -26,9 +34,14 @@ mat-row:nth-of-type(even){
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;;
+}
+.filtroTitulo{
+    color: white;
 }
 .filtro{
     display: flex;
+    background-color: transparent;
     margin-bottom: 1rem;
     border: none;
     border-bottom: 2px solid black;
@@ -36,4 +49,11 @@ mat-row:nth-of-type(even){
         border-radius: 0.5px;
         background-color: rgb(206, 208, 208);
     }
+}
+.tabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 50vh;
 }

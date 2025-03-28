@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { Usuario } from 'src/app/domain/Usuario';
-import { EncriptacionService } from 'src/app/service/encriptacion.service';
-import { UsuarioService } from 'src/app/service/usuario.service';
-import { environment } from 'src/environments/environment';
+import { EncriptacionService } from 'src/app/service/encryptService/encriptacion.service';
+import { UsuarioService } from 'src/app/service/userService/usuario.service';
+import { environment } from 'src/envs/environment';
 import Swal from 'sweetalert2';
 
 

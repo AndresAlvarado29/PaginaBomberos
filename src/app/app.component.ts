@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import 'bootstrap';
 import * as AOS from 'aos';
-import { UsuarioService } from './service/usuario.service';
+import { UsuarioService } from './service/userService/usuario.service';
 import { Auth } from '@angular/fire/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 

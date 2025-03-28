@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import { AppComponent } from 'src/app/app.component';
 import { Documento } from 'src/app/domain/Documento';
-import { DocumentoService } from 'src/app/service/documento.service';
+import { DocumentoService } from 'src/app/service/documentService/documento.service';
 
 
 @Component({

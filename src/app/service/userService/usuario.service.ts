@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from '@angular/fire/auth'
 import { Firestore, collectionData, deleteDoc, setDoc, docData } from '@angular/fire/firestore';
 import { collection, doc, updateDoc } from 'firebase/firestore';
-import { Usuario } from '../domain/Usuario';
+import { Usuario } from '../../domain/Usuario';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 

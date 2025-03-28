@@ -1,12 +1,16 @@
-<div class="container-fluid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div class="container-fluid contTabla">
   <h1 class="tituloLC">Rendiciones de Cuentas</h1>
-   <label for="filtro">Filtro</label> <input class="filtro" matInput type="text" placeholder="Ex. 2022" [(ngModel)]="filtroBusqueda" (input)="aplicarFiltroBusqueda()" #input>
+   <label for="filtro" class="filtroTitulo">Filtro</label> <input class="filtro" matInput type="text" placeholder="Ex. 2022" [(ngModel)]="filtroBusqueda" (input)="aplicarFiltroBusqueda()" #input>
   <div class="tabla">
     <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-      <ng-container matColumnDef="Numero">
-        <mat-header-cell class="header" *matHeaderCellDef > ID </mat-header-cell>
-        <mat-cell *matCellDef="let documento"> {{documento.uid}} </mat-cell>
-      </ng-container>
       <ng-container matColumnDef="Nombre">
         <mat-header-cell *matHeaderCellDef > Nombre </mat-header-cell>
         <mat-cell *matCellDef="let documento"> {{documento.nombre}} </mat-cell>
@@ -34,9 +38,10 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <span *ngIf="dataSource.data.length==0">
-      No existen documentos
-    </span>
   </div>
-  
+  <!--<span *ngIf="dataSource.data.length==0">
+    No existen documentos
+  </span>-->
 </div>
+</body>
+</html>

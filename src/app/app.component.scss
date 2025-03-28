@@ -1,74 +1,18 @@
 @import "../styles.scss";
 
-
+body{
+    background: linear-gradient(to bottom, #330000, #CC3333);
+    margin: 0;
+    height: 100vh;
+}
 .encabezado{
-    background-color: #7c0808;
+    background-color: #330000;
     display: flex;
     flex-direction: column;
     width: auto;
     justify-content: center;
     align-items: center;
 }
-.encabezadoTop{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .fuente{
-        position: relative;
-        top: 7px;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 65pt;
-        color: #FFB400;
-    }
-    .logo{
-        display: flex;
-        height: 120px;
-        width: 120px;
-    }
-}
-.encabezadoTop{
-    @media(max-width:551px){
-        .logo{
-            height: 80px;
-            width: 80px;
-        }
-        .fuente{
-            font-size: 58pt;
-        }
-    }
-    @media(max-width:522px){
-        .logo{
-            position: relative;
-            left: 4px;
-        }
-        .fuente{
-            font-size: 58pt;
-        }
-    }
-    @media(max-width:457px){
-        .logo{
-            position: relative;
-            left: 10px;
-        }
-        .fuente{
-            position: relative;
-            left: 10px;
-        }
-    }
-    @media(max-width:439px){
-        .fuente{
-            position: relative;
-            left: 12px;
-        }
-    }
-    @media(max-width:280px){
-        .fuente{
-            font-size: 28pt;  
-        }
-    }
-}  
-
 .encabezadoMedio{
     display: flex;
     flex-direction: row;
@@ -82,6 +26,7 @@
     }
 }  
 .cuerpo{
+    background: linear-gradient(to bottom, #330000, #CC3333);
     padding-top: 1rem;
 }
 .presentacion{
@@ -164,10 +109,12 @@
 .imagenes{
     padding: 0.5rem;
     margin: 0 auto;
-    //width: 75%;
+    width: 100%;
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     grid-template-columns: repeat(auto-fit,minmax(min(100%,355px),1fr));
+    padding-left: 10vh;
+    padding-right: 10vh;
     img{
         width: 100%;
         aspect-ratio: 3/2;
@@ -176,14 +123,15 @@
 }
 .pieDePagina{
     z-index: 3;
-    padding-top: 10px;
+    padding-top: 50px;
+    padding-bottom: 25px;
     position: relative;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #7c0808;
+    background-color: #CC3333;
     flex-direction: column;
         span{
             color: #FFB400;
@@ -251,14 +199,13 @@
 
 //barra de navegacion
 .navbar {
-  background-color: #255a82;
   overflow: hidden;
   border-radius: 5px;
 }
 
 .navbar-toggle {
  display: flex;
-  background-color: #255a82;
+  background-color: #000000;
   flex-direction: column;
   width: 3rem;
   height: 2rem;
@@ -277,12 +224,12 @@
 .navbar-links {
   display: flex;
   justify-content: flex-end;
-  
+  gap: 6rem;
 }
 
 .navbar-links a {
+  font-size: 18pt;
   color: white;
-  gap: 2rem;
   text-decoration: none;
   padding: 14px 20px;
   font-weight: bold;
@@ -344,9 +291,13 @@
 }
 
 @media screen and (max-width: 520px) {
+.navbar{
+    background-color: #000000;
+}
   .navbar-links {
     display: none;
     a{
+        font-size: 14pt;
         padding: 14px 152px;
         justify-content: center;
         position: relative;
@@ -358,8 +309,7 @@
     flex-basis: auto;
     flex-direction: column;
     width: 100%;
-    background-color: #255a82;
-    
+    background-color: #000000;
   }
 }
 

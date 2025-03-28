@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
-import { ArchivoClienteService } from 'src/app/service/archivo-cliente.service';
-import { environment } from 'src/environments/environment';
+import { ArchivoClienteService } from 'src/app/service/fileService/archivo-cliente.service';
+import { environment } from 'src/envs/environment';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-servicio',
@@ -159,7 +159,7 @@ sendEmail(form: any, fileUrl?: string[]) {
     file_url: fileUrl || []
   };
 
-  emailjs.send(this.llaveMail, this.llaveTemplate, templateParams, this.llavePublica)
+  emailjs.send(this.llaveMail || '', this.llaveTemplate || '', templateParams, this.llavePublica || '')
     .then((response: EmailJSResponseStatus) => {
       console.log('Success!', response.status, response.text);
       Swal.fire({
@@ -227,7 +227,7 @@ sendEmailCapacitaciones(form: any, selectedCapacitaciones: string[]=[], fileUrl:
   };
   console.log(fileUrl);
   console.log(selectedCapacitaciones);
-  emailjs.send(this.llaveMail, this.llaveTemplate, templateParams, this.llavePublica)
+  emailjs.send(this.llaveMail || '', this.llaveTemplate || '', templateParams, this.llavePublica || '')
     .then((response: EmailJSResponseStatus) => {
       console.log('Success!', response.status, response.text);
       Swal.fire({
